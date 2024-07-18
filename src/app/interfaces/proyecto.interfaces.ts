@@ -1,11 +1,7 @@
-export interface Empleado {
-    _id: string;
+export interface Proyecto {
     nombre: string;
-    apellidos: string;
-    email: string;
-    telefono: string;
     departamento: string;
-    salario: number;
+    fecha_limite: Date;
     createdAt?: Date;
     updatedAt?: Date;
 }
