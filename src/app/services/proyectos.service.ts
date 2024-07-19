@@ -9,6 +9,8 @@ import { Proyecto } from '../interfaces/proyecto.interface';
 })
 export class ProyectosService {
 
+  constructor() { }
+
   private baseUrl = `${environment.apiUrl}/api/crearproyecto`;
 
   private httpClient = inject(HttpClient);
