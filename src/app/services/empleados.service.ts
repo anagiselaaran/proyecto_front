@@ -26,13 +26,8 @@ export class EmpleadosService {
  
 
   getAll(): Promise<Empleado[]> {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-type': 'application/json'
-      })
-    }
     return firstValueFrom(
-      this.httpClient.get<Empleado[]>(this.baseUrl, httpOptions)
+      this.httpClient.get<Empleado[]>(this.baseUrl)
      
     );
   }
