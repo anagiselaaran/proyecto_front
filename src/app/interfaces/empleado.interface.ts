@@ -1,11 +1,13 @@
 export interface Empleado {
-    _id: string;
-    nombre: string;
-    apellidos: string;
+    id: string;
+    name: string;
+    surname: string;
     email: string;
-    telefono: string;
-    departamento: string;
-    salario: number;
-    createdAt?: Date;
-    updatedAt?: Date;
+    password: string;
+    role: string;
+    department: string;
+    contracted_hours: number;
+    is_active: boolean;
+    created_at?: Date;
+    updated_at?: Date;
 }

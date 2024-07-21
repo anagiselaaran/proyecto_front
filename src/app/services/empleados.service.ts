@@ -13,8 +13,7 @@ type ApiResponse = { success: string, token?: string };
 })
 export class EmpleadosService {
 
-  private baseUrl: string = `${environment.apiUrl}/empleados`;
-
+  private baseUrl = `${environment.apiUrl}/api/users`;
   private httpClient = inject(HttpClient);
 
 
@@ -24,16 +23,17 @@ export class EmpleadosService {
     );
   }
 
-  createHeaders() {
-    return {
+ 
+
+  getAll(): Promise<Empleado[]> {
+    const httpOptions = {
       headers: new HttpHeaders({
-        'Authorization': localStorage.getItem('crmtoken')!
+        'Content-type': 'application/json'
       })
     }
-  }
-  getAll(): Promise<Empleado[]> {
     return firstValueFrom(
-      this.httpClient.get<Empleado[]>(this.baseUrl, this.createHeaders())
+      this.httpClient.get<Empleado[]>(this.baseUrl, httpOptions)
+     
     );
   }
 }

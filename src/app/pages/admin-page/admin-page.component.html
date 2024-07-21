@@ -2,7 +2,16 @@
 
 <div>
     <h3 class="text-center">Trabajadores</h3>
+    <div class="trabajadores">
+        @for (trabajador  of arrTrabajadores; track trabajador.id) {
+            <card-trabajadores [trabajador]="trabajador"></card-trabajadores>
+
+        }
+    </div>
 </div>
+
+
+
 <div>
     <h3 class="text-center">Proyectos</h3>
 </div>

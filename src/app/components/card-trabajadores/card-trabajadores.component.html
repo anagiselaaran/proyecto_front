@@ -1,1 +1,17 @@
-<p>card-trabajadores works!</p>
+
+@if (trabajador) {
+    <div class="card mb-2" style="width: 18rem;">
+        <h3>{{trabajador.name}} {{trabajador.surname}}</h3>
+        <p>Departamento: {{trabajador.department}}</p>
+        <p>Email: {{trabajador.email}}</p>
+        <p>Role: {{trabajador.role}}</p>
+        @if (trabajador.is_active) {
+            <p>Empleado <span class="active">activo</span></p>
+        }@else {
+            <p>Empleado <span class="inactive">inactivo</span></p>
+        }
+       
+
+    </div>
+
+}
