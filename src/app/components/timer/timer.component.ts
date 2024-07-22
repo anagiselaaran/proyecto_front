@@ -1,7 +1,8 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { DateTime, Duration } from 'luxon';
 import { map, Observable, timer } from 'rxjs';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-timer',
@@ -11,7 +12,23 @@ import { map, Observable, timer } from 'rxjs';
   styleUrl: './timer.component.css',
 })
 export class TimerComponent {
-  @Output() elapsed: Duration = Duration.fromMillis(0);
+  @Output() workHours = new EventEmitter<number>();
+  // @Output() workProject = new EventEmitter<string>();
+
+  Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    showConfirmButton: false,
+    showCloseButton: true,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
+
+  elapsed: Duration = Duration.fromMillis(0);
 
   timerSource: Observable<number> = timer(0, 1000);
   timer: Observable<string> | null = null;
@@ -54,8 +71,6 @@ export class TimerComponent {
       return;
     }
 
-
-
     // Mark resume timestamp
     this.resumedAt = DateTime.now();
 
@@ -73,7 +88,7 @@ export class TimerComponent {
   }
 
   pauseTimer() {
-    if (this.firstStart  || this.isPaused) {
+    if (this.firstStart || this.isPaused) {
       return;
     }
     // Mark pause timestamp
@@ -92,19 +107,46 @@ export class TimerComponent {
     this.isPaused = true;
   }
 
-  stopTimer() {
-    // Register stoppedAt
-    this.stoppedAt = DateTime.now();
-    // Stop the timer
-    this.timer = null;
-    // Reset startedAt
-    this.startedAt = null;
-    this.firstStart = true;
-    // Reset resume
-    this.elapsed = Duration.fromMillis(0);
-    this.resumeTimerFrom = '';
-    // Reset paused
-    this.isPaused = true;
-    this.pausedAt = null;
+  async stopTimer() {
+    if (this.firstStart || !this.isPaused) {
+      return;
+    }
+
+    const response: any = await Swal.fire({
+      title: 'Quieres finalizar la sesión de trabajo?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#399e52',
+    });
+
+    if (response.isConfirmed) {
+      await this.endShift();
+
+      this.Toast.fire({
+        icon: 'success',
+        title: 'Sesión de trabajo finalizada',
+        text: 'Que tengas un buen dia!',
+      });
+
+      // Register stoppedAt
+      this.stoppedAt = DateTime.now();
+      // Stop the timer
+      this.timer = null;
+      // Reset startedAt
+      this.startedAt = null;
+      this.firstStart = true;
+      // Reset resume
+      this.elapsed = Duration.fromMillis(0);
+      this.resumeTimerFrom = '';
+      // Reset paused
+      this.isPaused = true;
+      this.pausedAt = null;
+    }
+  }
+
+  endShift() {
+    console.log(this.elapsed.toMillis());
+
+    this.workHours.emit(this.elapsed.toMillis());
   }
 }

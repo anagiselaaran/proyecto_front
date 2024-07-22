@@ -3,16 +3,43 @@
   position: relative;
   justify-content: center;
   align-items: center;
-  background: conic-gradient(from 0deg, var(--salmon), var(--light-salmon), var(--salmon));
+  background: conic-gradient(
+    from 0deg,
+    var(--salmon),
+    var(--light-salmon),
+    var(--salmon)
+  );
   font-family: "Tomorrow", sans-serif;
 
   /* width: 100%;
   height: 100vh; */
 
-  width: 65%;
+  width: 55%;
   height: fit-content;
   border: var(--dark-grey) 3px solid;
   border-radius: 15px;
+
+  @media (width < 840px) {
+    .timer-container {
+      width: 250px;
+      height: 250px;
+    }
+
+    .timer-container > * {
+      font-size: 3rem;
+    }
+  }
+
+  @media (width < 600px) {
+    .timer-container {
+      width: 220px;
+      height: 220px;
+    }
+
+    .timer-container > * {
+      font-size: 2.5rem;
+    }
+  }
 }
 
 .timer-container {
@@ -56,6 +83,22 @@
   border-radius: 50%;
   position: relative;
   cursor: pointer;
+
+  &:hover {
+    transform: scale(1.15);
+    background-color: var(--dark-skyblue);
+    transition: all 0.2s ease;
+  }
+  &:active {
+    border: 5px solid var(--dark-grey);
+    background-color: var(--aquamarine);
+    transform: scale(0.9);
+    transition: all 0.2s ease;
+  }
+}
+
+label[inert] {
+  opacity: 0.5;
 }
 
 #play--btn:active,
@@ -95,15 +138,6 @@
   transform: translate(-50%, -50%);
 }
 
-/* #reset:checked + * + * + * + * #reset--btn,
-#pause:checked + * + * + * #pause--btn,
-#reset:checked + * + * + * + * #pause--btn,
-#play:checked + * + * #play--btn {
-  opacity: 0.4;
-  pointer-events: none;
-} */
-
-/* ############ Show/Hide Buttons ############# */
 #resume--btn.hide-resume-btn {
   display: none;
 }
@@ -118,7 +152,8 @@
 /* ############ Spinner #############*/
 .spinner {
   position: absolute;
-  top: 50.25%;
+  top: 46.9%;
+  /* Find a way to better anchor to circle center */
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -137,7 +172,7 @@
   box-sizing: border-box;
   inset: -9px;
   border-radius: 50%;
-  border: 4px solid #e04c128a;
+  border: 4px solid #d83f02af;
   content: "";
   animation: prixClipFix 1s infinite linear;
 }

@@ -1,4 +1,6 @@
-<div class="clock">
-    <p>{{clock | async}}</p>
-    <app-timer></app-timer>
+<div class="wrapper">
+    <div class="clock">
+        <app-clock></app-clock>
+    </div>
+    <app-timer (endShift)="onEndShift($event)"></app-timer>
 </div>
