@@ -22,7 +22,7 @@ empleadosService = inject(EmpleadosService)
   ngOninit() {
     this.activatedRoute.params.subscribe(async params => { // Suscripción a los parámetros de la ruta
       try {
-        this.empleado = await this.empleadosService.getById(params['userId']) // Obtiene los datos del empleado por su ID.
+        this.empleado = await this.empleadosService.getById(Number(params['userId'])) // Obtiene los datos del empleado por su ID.
       } catch (error:any) {
         this.errorMessage = error.message;
 

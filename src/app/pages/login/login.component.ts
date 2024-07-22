@@ -23,7 +23,8 @@ export class LoginComponent {
     password: new FormControl(null, [
       Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,12}$/)
     ]),
-    repite_password: new FormControl(),
+    /* repite_password: new FormControl(), */
+    
   });
 
   async onSubmit() {

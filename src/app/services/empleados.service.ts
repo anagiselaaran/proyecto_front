@@ -13,8 +13,7 @@ type ApiResponse = { success: string, token?: string };
 })
 export class EmpleadosService {
 
-  private baseUrl: string = `${environment.apiUrl}/api/users`;
-
+  private baseUrl = `${environment.apiUrl}/api/users`;
   private httpClient = inject(HttpClient);
 
 
@@ -24,21 +23,17 @@ export class EmpleadosService {
     );
   }
 
-  createHeaders() {
-    return {
-      headers: new HttpHeaders({
-        'Authorization': localStorage.getItem('crmtoken')!
-      })
-    }
-  }
+
+
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(
-      this.httpClient.get<Empleado[]>(this.baseUrl, this.createHeaders())
+      this.httpClient.get<Empleado[]>(this.baseUrl)
+
     );
   }
-  getById(): Promise<Empleado[]>{
+  getById(userId: number): Promise<Empleado> {
     return firstValueFrom(
-      this.httpClient.get<Empleado[]>(this.baseUrl + '/users/:userId', this.createHeaders())
-      );
+      this.httpClient.get<Empleado>(this.baseUrl + '/users/' + userId)
+    );
   }
 }
