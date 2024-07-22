@@ -11,6 +11,7 @@ export const roleGuardGuard: CanActivateFn = (route, state) => {
   
   const token = localStorage.getItem('token') || "";
   const decoded = jwtDecode<CustomPayload>(token);
+  console.log(decoded);
 
   if (decoded.user_role === 'admin') {
     return true

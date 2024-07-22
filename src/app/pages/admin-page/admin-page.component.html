@@ -14,4 +14,9 @@
 
 <div>
     <h3 class="text-center">Proyectos</h3>
+    <div class="projects">
+        @for (project of arrProyectos; track project.id) {
+            <card-project [project]="project"></card-project>
+        }
+    </div>
 </div>

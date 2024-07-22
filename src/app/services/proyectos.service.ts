@@ -11,7 +11,7 @@ export class ProyectosService {
 
   constructor() { }
 
-  private baseUrl = `${environment.apiUrl}/api/crearproyecto`;
+  private baseUrl = `${environment.apiUrl}/api/projects`;
 
   private httpClient = inject(HttpClient);
 

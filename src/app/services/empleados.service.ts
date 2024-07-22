@@ -19,7 +19,7 @@ export class EmpleadosService {
 
   login(body: LoginBody): Promise<ApiResponse> {
     return firstValueFrom(
-      this.httpClient.post<ApiResponse>(this.baseUrl + 'login', body)
+      this.httpClient.post<ApiResponse>(this.baseUrl + '/login', body)
     );
   }
 
