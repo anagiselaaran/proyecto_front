@@ -13,7 +13,7 @@ type ApiResponse = { success: string, token?: string };
 })
 export class EmpleadosService {
 
-  private baseUrl: string = `${environment.apiUrl}/empleados`;
+  private baseUrl: string = `${environment.apiUrl}/api/users`;
 
   private httpClient = inject(HttpClient);
 
@@ -35,5 +35,10 @@ export class EmpleadosService {
     return firstValueFrom(
       this.httpClient.get<Empleado[]>(this.baseUrl, this.createHeaders())
     );
+  }
+  getById(): Promise<Empleado[]>{
+    return firstValueFrom(
+      this.httpClient.get<Empleado[]>(this.baseUrl + '/users/:userId', this.createHeaders())
+      );
   }
 }
