@@ -1,0 +1,164 @@
+.wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background: conic-gradient(from 0deg, var(--salmon), var(--light-salmon), var(--salmon));
+  font-family: "Tomorrow", sans-serif;
+
+  /* width: 100%;
+  height: 100vh; */
+
+  width: 65%;
+  height: fit-content;
+  border: var(--dark-grey) 3px solid;
+  border-radius: 15px;
+}
+
+.timer-container {
+  width: 400px;
+  height: 400px;
+  margin: 80px auto 20px;
+  text-align: center;
+  align-content: center;
+  padding: 20px 0;
+  background-color: var(--aquamarine);
+  border-radius: 50%;
+  border: 3px solid var(--dark-grey);
+}
+.timer-container > * {
+  font-size: 4rem;
+  font-weight: bolder;
+  color: var(--dark-grey);
+}
+
+#play,
+#resume,
+#pause,
+#reset {
+  display: none;
+}
+
+#controls {
+  text-align: center;
+}
+
+#play--btn,
+#pause--btn,
+#reset--btn,
+#resume--btn {
+  width: 50px;
+  height: 50px;
+  border: 6px solid var(--dark-grey);
+  background-color: var(--aquamarine);
+  display: inline-block;
+  margin: 0 6px;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+#play--btn:active,
+#pause--btn:active,
+#reset--btn:active,
+#resume--btn:active {
+  border: 6px solid var(--dark-grey);
+  background-color: var(--aquamarine);
+}
+
+#play--btn::after,
+#pause--btn::after,
+#reset--btn::after,
+#resume--btn::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 12px solid transparent;
+  border-left-color: var(--dark-grey);
+  border-right-width: 18px;
+  border-left-width: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-20%, -50%);
+}
+#pause--btn::after {
+  border: 0px solid;
+  border-left: 8px solid var(--dark-grey);
+  border-right: 8px solid var(--dark-grey);
+  width: 20px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+}
+#reset--btn::after {
+  border: 10px solid var(--dark-grey);
+  transform: translate(-50%, -50%);
+}
+
+/* #reset:checked + * + * + * + * #reset--btn,
+#pause:checked + * + * + * #pause--btn,
+#reset:checked + * + * + * + * #pause--btn,
+#play:checked + * + * #play--btn {
+  opacity: 0.4;
+  pointer-events: none;
+} */
+
+/* ############ Show/Hide Buttons ############# */
+#resume--btn.hide-resume-btn {
+  display: none;
+}
+#resume--btn.show-resume-btn {
+  display: inline-block;
+}
+
+#play--btn.hide-play-btn {
+  display: none;
+}
+
+/* ############ Spinner #############*/
+.spinner {
+  position: absolute;
+  top: 50.25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.loader {
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  position: relative;
+  transform: rotate(45deg);
+  box-sizing: border-box;
+}
+.loader::before {
+  position: absolute;
+  top: 50;
+  left: 50;
+  box-sizing: border-box;
+  inset: -9px;
+  border-radius: 50%;
+  border: 4px solid #e04c128a;
+  content: "";
+  animation: prixClipFix 1s infinite linear;
+}
+.spinner:has(.stop-spinner) .loader::before {
+  display: none;
+}
+
+@keyframes prixClipFix {
+  0% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0);
+  }
+  25% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 0, 100% 0, 100% 0);
+  }
+  50% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 100% 100%, 100% 100%);
+  }
+  75% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+  }
+  100% {
+    clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}

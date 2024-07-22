@@ -1,129 +1,49 @@
-<!-- <div class="container-fluid d-flex align-items-center justify-content-center"
-    style="height: 100vh;">
-    <div class="d-flex flex-column flex-sm-row gap-2">
-        <div>
-            <div class="text-center text-sm tracking-widest pb-1">HOURS</div>
-            <div class="d-flex gap-2">
-                <div
-                    class="position-relative w-25 h-100 p-4 text-5xl shadow-inner bg-light rounded overflow-hidden">
-                    <div id="hoursDozen" class="position-absolute top-0 transition-all">
-                        <div class="pt-5">0</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                    </div>
-                </div>
-                <div
-                    class="position-relative w-25 h-100 p-4 text-5xl shadow-inner bg-light rounded overflow-hidden">
-                    <div id="hours" class="position-absolute top-0 transition-all">
-                        <div class="pt-5">0</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                    </div>
-                </div>
-            </div>
+<div class="wrapper mx-auto p-5">
+    <div class="one pb-5">
+        <input name="state" type="radio" id="reset" checked (change)="stopTimer()" />
+        <input name="state" type="radio" id="pause" (change)="pauseTimer()" />
+        <input name="state" type="radio" id="resume" (change)="resumeTimer()" />
+        <input name="state" type="radio" id="play" (change)="startTimer()" />
+        <div class="timer-container">
+            <span>
+                @if (timer) {
+                {{timer | async}}
+                } @else if (resumeTimerFrom && isPaused) {
+                {{resumeTimerFrom}}
+                } @else {
+                {{resetTimer}}
+                }
+            </span>
         </div>
-        <div></div>
-        <div>
-            <div class="text-center text-sm tracking-widest pb-1">MINUTES</div>
-            <div class="flex gap-2">
-                <div
-                    class="position-relative w-25 h-100 p-4 text-5xl shadow-inner bg-light rounded overflow-hidden">
-                    <div id="minutesDozen" class="position-absolute top-0 transition-all">
-                        <div class="pt-5">0</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                    </div>
-                </div>
-                <div
-                    class="position-relative w-25 h-100 p-4 text-5xl shadow-inner bg-light rounded overflow-hidden">
-                    <div id="minutes" class="position-absolute top-0 transition-all">
-                        <div class="pt-5">0</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                    </div>
-                </div>
-            </div>
+        <div id="controls">
+            <label for="reset" id="reset--btn"></label>
+            <label for="pause" id="pause--btn"></label>
+            <label for="play" id="play--btn" [class]="{'hide-play-btn': !firstStart}"></label>
+            <label for="resume" id="resume--btn" [class]="{'hide-resume-btn': firstStart}"></label>
         </div>
-        <div></div>
-        <div>
-            <div class="text-center text-sm tracking-widest pb-1">SECONDS</div>
-            <div class="flex gap-2">
-                <div
-                    class="position-relative w-25 h-100 p-4 text-5xl shadow-inner bg-light rounded overflow-hidden">
-                    <div id="secondsDozen" class="position-absolute top-0 transition-all">
-                        <div class="pt-5">0</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                    </div>
-                </div>
-                <div
-                    class="position-relative w-25 h-100 p-4 text-5xl shadow-inner bg-light rounded overflow-hidden">
-                    <div id="seconds" class="position-absolute top-0 transition-all">
-                        <div class="pt-5">0</div>
-                        <div>1</div>
-                        <div>2</div>
-                        <div>3</div>
-                        <div>4</div>
-                        <div>5</div>
-                        <div>6</div>
-                        <div>7</div>
-                        <div>8</div>
-                        <div>9</div>
-                    </div>
-                </div>
-            </div>
+        <div class="spinner">
+            <div class="loader" [class]="{'stop-spinner': isPaused}"></div>
         </div>
     </div>
-</div> -->
-
-<div class="container-fluid d-flex align-items-center justify-content-center"
-    style="height: 100vh;">
-    <button class="btn btn-success" (click)="startTimer()">START</button>
-    <button class="btn btn-outline-success" (click)="resumeTimer()">RESUME</button>
-    <button class="btn btn-outline-success" (click)="pauseTimer()">PAUSE</button>
-    <button class="btn btn-outline-success" (click)="stopTimer()">STOP</button>
-
-    <span>@if (timer) {
-            {{timer | async}}
-        } @else if (resumeTimerFrom && isPaused) {
-            {{resumeTimerFrom}}
-        } @else {
-            {{resetTimer}}
-        }</span>
-
 </div>
+
+<!-- <div class="three">
+    <input name="state" type="radio" id="reset" checked (change)="stopTimer()" />
+    <input name="state" type="radio" id="pause" (change)="pauseTimer()" />
+    <input name="state" type="radio" id="resume" (change)="resumeTimer()" />
+    <input name="state" type="radio" id="play" (change)="startTimer()" />
+    <div class="timer-container">
+        <span>@if (timer) {
+            {{timer | async}}
+            } @else if (resumeTimerFrom && isPaused) {
+            {{resumeTimerFrom}}
+            } @else {
+            {{resetTimer}}
+            }</span>
+    </div>
+    <div id="controls">
+        <label for="reset" id="reset--btn"></label>
+        <label for="pause" id="pause--btn"></label>
+        <label for="play" id="play--btn"></label>
+    </div>
+</div> -->

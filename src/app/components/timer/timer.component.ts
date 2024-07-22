@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component, Output } from '@angular/core';
-import { DateTime, Duration, Interval } from 'luxon';
+import { DateTime, Duration } from 'luxon';
 import { map, Observable, timer } from 'rxjs';
 
 @Component({
@@ -24,16 +24,21 @@ export class TimerComponent {
   resumedAt: DateTime | null = null;
   stoppedAt: DateTime | null = null;
 
-  // elapsed: Duration | null = null;
-
-  isPaused: boolean = false;
+  isPaused: boolean = true;
+  firstStart: boolean = true;
 
   startTimer() {
-    if (this.isPaused || this.timer) {
+    if (!this.firstStart) {
       return;
     }
+
     // Mark start timestamp
     this.startedAt = DateTime.now();
+
+    // Mark first start
+    this.firstStart = false;
+    // Change pause state
+    this.isPaused = false;
 
     // Start the timer
     this.timer = this.timerSource.pipe(
@@ -45,12 +50,17 @@ export class TimerComponent {
   }
 
   resumeTimer() {
-    if (!this.isPaused) {
+    if (this.firstStart || !this.isPaused) {
       return;
     }
 
+
+
     // Mark resume timestamp
     this.resumedAt = DateTime.now();
+
+    // Change pause state
+    this.isPaused = false;
 
     // Restart the timer
     this.timer = this.timerSource.pipe(
@@ -60,12 +70,10 @@ export class TimerComponent {
         return diff.toFormat('hh:mm:ss');
       })
     );
-    this.isPaused = false;
-    return;
   }
 
   pauseTimer() {
-    if (!this.timer) {
+    if (this.firstStart  || this.isPaused) {
       return;
     }
     // Mark pause timestamp
@@ -80,8 +88,8 @@ export class TimerComponent {
     this.resumeTimerFrom = this.elapsed.toFormat('hh:mm:ss');
 
     // Stop the timer
-    this.isPaused = true;
     this.timer = null;
+    this.isPaused = true;
   }
 
   stopTimer() {
@@ -91,11 +99,12 @@ export class TimerComponent {
     this.timer = null;
     // Reset startedAt
     this.startedAt = null;
+    this.firstStart = true;
     // Reset resume
     this.elapsed = Duration.fromMillis(0);
     this.resumeTimerFrom = '';
     // Reset paused
-    this.isPaused = false;
+    this.isPaused = true;
     this.pausedAt = null;
   }
 }
