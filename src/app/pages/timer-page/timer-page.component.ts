@@ -11,7 +11,7 @@ import { ClockComponent } from '../../components/clock/clock.component';
 })
 export class TimerPageComponent {
   workHours: number = 0;
-  projectList: Project[] = [];
+  // projectList: Project[] = [];
 
   onEndShift(event: number | undefined) {
     if (event !== undefined) {
