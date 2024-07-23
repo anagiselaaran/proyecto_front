@@ -1,11 +1,12 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Empleado, Password } from '../interfaces/empleado.interface';
+import { Empleado, Password, UserProjects } from '../interfaces/empleado.interface';
 import { firstValueFrom } from 'rxjs';
-import { environment } from '../../environments/environment.development';
+import { environment } from '../../environments/environment';
 
 type LoginBody = { email: string; password: string };
-type ApiResponse = { success: string; token?: string };
+// TODO: Remove id property if not using id as url parameter
+type ApiResponse = { success: string; token?: string, id: number };
 
 @Injectable({
   providedIn: 'root',
@@ -28,6 +29,13 @@ export class EmpleadosService {
 
   }
 
+  getProjectsByUserId(userId: number): Promise<UserProjects[]> {
+    console.log(userId);
+
+    return firstValueFrom(
+      this.httpClient.get<UserProjects[]>(this.baseUrl + '/projects/' + userId)
+    );
+  }
 
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(this.httpClient.get<Empleado[]>(this.baseUrl));

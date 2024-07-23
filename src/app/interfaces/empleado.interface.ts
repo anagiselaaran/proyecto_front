@@ -17,3 +17,10 @@ export interface Password {
     newPassword: string;
     newRepPassword: string;
 }
+
+export interface UserProjects {
+    id: number;
+    name: string;
+    project_work_hours: number;
+    start_date: Date;
+}
