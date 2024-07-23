@@ -8,9 +8,10 @@ import { RegisterComponent } from './pages/register/register.component';
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
     { path: 'admin', component: AdminPageComponent, canActivate: [authGuard, roleGuardGuard] },
     /*  { path: 'projects/:projectId', component: ,canActivate: [authGuard, roleGuardGuard]} para Cami*/
-    { path: 'register', component: RegisterComponent },
+
     { path: '**', redirectTo: '/login' },
 ];
 //TODO: agregar guard auth en las rutas q faltan

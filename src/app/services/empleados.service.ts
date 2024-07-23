@@ -24,7 +24,7 @@ export class EmpleadosService {
   }
   create(body: Empleado): Promise<Empleado> {
     return firstValueFrom(
-      this.httpClient.post<Empleado>(this.baseUrl, body)
+      this.httpClient.post<Empleado>(this.baseUrl + '/new', body)
     );
 
   }

@@ -40,9 +40,11 @@ export class RegisterFormComponent {
     ]),
   });
 
-  onSubmit() {
+  async onSubmit() {
     if (this.formulario.valid) {
-      console.log('Formulario enviado:', this.formulario.value);
+      let response = await this.empleadosService.create(this.formulario.value);
+      console.log(response);
+
       this.formulario.reset();
     } else {
       alert('Falta completar el formulario.');
