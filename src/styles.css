@@ -1,8 +1,23 @@
-body,
+:root {
+    --color-primary: #FF8B65;
+    --color-secondary: #343A40;
+    --color-accent: #F6E27F;
+    --color-background: #A8B7AB;
+    --color-text: #9BBEC7;
+
+}
+
+body {
+
+    font-family: 'Roboto', sans-serif;
+    /*font-family: 'Nunito', sans-serif;
+    font-family: 'Raleway', sans-serif;
+    font-family: 'Poppins', sans-serif;*/
+}
+
 html {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     font-size: 16px;
 }
 

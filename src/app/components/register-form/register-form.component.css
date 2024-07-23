@@ -1,0 +1,115 @@
+.form-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.form-group {
+    flex: 1 1 calc(50% - 16px);
+    margin-bottom: 15px;
+}
+
+.flex-item {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.form-control {
+    width: 90%;
+    /*border: none;
+    border-bottom: 0.5px outset #343a40*/
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0.80rem 1rem 0.60rem 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 0 3px rgba(5, 71, 48, 0.097);
+    outline: none;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    padding-top: 0;
+    margin-top: 5rem;
+}
+
+.card-header-custom {
+    background: linear-gradient(135deg,
+            #FFB865,
+            #f37c55,
+            #f06752);
+    color: white;
+    padding: 1rem 1.5rem;
+    position: absolute;
+    top: 7rem;
+    left: 60%;
+    border-radius: 0.2rem;
+    transform: translateX(-50%);
+    width: calc(79% - 2rem);
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(10, 10, 10, 0.1);
+    margin-top: 11rem;
+    width: 996px;
+    padding-top: 3.5rem;
+}
+
+.card-body {
+    padding: 2rem;
+    position: relative;
+}
+
+.form-group {
+    width: fit-content;
+}
+
+
+h2 {
+    margin: 0;
+
+}
+
+h4 {
+    margin: 0;
+    font-size: small;
+}
+
+.btn {
+    height: 50px;
+    width: 200px;
+    background: #343A40;
+    color: #e8e6e5;
+    border: none;
+    border-radius: 3px;
+    font-size: large;
+    font-weight: lighter;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.btn:hover {
+    background-color: #eb6f4d;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
