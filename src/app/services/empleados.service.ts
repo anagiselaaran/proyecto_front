@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Empleado } from '../interfaces/empleado.interface';
+import { Empleado, Password } from '../interfaces/empleado.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 
@@ -11,7 +11,9 @@ type ApiResponse = { success: string; token?: string };
   providedIn: 'root',
 })
 export class EmpleadosService {
-  private baseUrl = `${environment.apiUrl}/api/users`;
+
+  private baseUrl: string = `${environment.apiUrl}/api/users`;
+
   private httpClient = inject(HttpClient);
 
   login(body: LoginBody): Promise<ApiResponse> {
@@ -34,5 +36,18 @@ export class EmpleadosService {
 
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(this.httpClient.get<Empleado[]>(this.baseUrl));
+  }
+
+  getById(userId: number): Promise<Empleado> {
+    return firstValueFrom(
+      this.httpClient.get<Empleado>(this.baseUrl + '/' + userId)
+    );
+  }
+
+  updatePassword(userId: number, body: Password): Promise<any> {
+    console.log(body)
+    return firstValueFrom(
+      this.httpClient.put<any>(this.baseUrl + '/profile/edit/' + userId, body)
+      );
   }
 }

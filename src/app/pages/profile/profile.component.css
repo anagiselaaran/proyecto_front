@@ -1,0 +1,45 @@
+h1{
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    font-weight: 600;
+}
+hr{
+    border: 1px solid #000000;
+    width: 350px;
+    margin-top: 5px;
+
+}
+.active {
+    color: green;
+}
+
+.inactive {
+    color: red;
+}
+
+.card {
+    padding: 10px;
+    background-color: #eee;
+    padding: 50px;
+   
+
+    & .title {
+       border-bottom: 1px solid #b3a7a7;
+        padding: 10px;
+    }
+}
+.form-control{
+    margin-top: 10px;
+    background-color: #eee;
+}
+.caja{
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+}
+button{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
