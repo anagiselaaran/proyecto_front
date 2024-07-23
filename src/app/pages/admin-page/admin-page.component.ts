@@ -18,7 +18,9 @@ export class AdminPageComponent {
 
 
   arrTrabajadores: Empleado[] = []
-  arrProyectos: Proyecto[] = []
+  arrProjects: Proyecto[] = []
+
+  selectorP:string=''
   
   empleadosService = inject(EmpleadosService)
   proyectosService = inject(ProyectosService)
@@ -30,9 +32,17 @@ export class AdminPageComponent {
     console.log(arrProj);
     
     this.arrTrabajadores = arr
-    this.arrProyectos = arrProj
-    console.log(this.arrProyectos);
+    this.arrProjects = arrProj
+    
    
+    
+  }
+
+  async onSelect($event: any) {
+    const result = $event.target.value;
+    const projects = await this.proyectosService.getByDepartment(result)
+    this.arrProjects = projects
+    this.selectorP = result
     
   }
 

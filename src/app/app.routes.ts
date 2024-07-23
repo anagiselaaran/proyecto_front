@@ -11,7 +11,6 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'admin', component: AdminPageComponent, canActivate: [authGuard, roleGuardGuard] },
     /*  { path: 'projects/:projectId', component: ,canActivate: [authGuard, roleGuardGuard]} para Cami*/
-
     { path: '**', redirectTo: '/login' },
 ];
 //TODO: agregar guard auth en las rutas q faltan
