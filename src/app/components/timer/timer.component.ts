@@ -12,8 +12,8 @@ import Swal from 'sweetalert2';
   styleUrl: './timer.component.css',
 })
 export class TimerComponent {
-  @Output() workHours = new EventEmitter<number>();
-  // @Output() workProject = new EventEmitter<string>();
+  @Output() workHours: EventEmitter<number> = new EventEmitter();
+  // @Output() workProjects: EventEmitter<string> = new EventEmitter();
 
   Toast = Swal.mixin({
     toast: true,
@@ -120,7 +120,7 @@ export class TimerComponent {
     });
 
     if (response.isConfirmed) {
-      await this.endShift();
+      this.endShift();
 
       this.Toast.fire({
         icon: 'success',
@@ -145,8 +145,8 @@ export class TimerComponent {
   }
 
   endShift() {
-    console.log(this.elapsed.toMillis());
+    const milliseconds: number = this.elapsed.toMillis();
 
-    this.workHours.emit(this.elapsed.toMillis());
+    this.workHours.emit(milliseconds);
   }
 }

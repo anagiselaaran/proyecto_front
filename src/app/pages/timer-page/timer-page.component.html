@@ -2,5 +2,8 @@
     <div class="clock">
         <app-clock></app-clock>
     </div>
-    <app-timer (endShift)="onEndShift($event)"></app-timer>
+    <app-timer (workHours)="onEndShift($event)"></app-timer>
+    <!-- <div class="d-flex justify-content-center mt-4 total-hours">
+        <h5>Total work hours today: <span>{{(workHours / 3600000).toFixed(0)}}</span></h5>
+    </div> -->
 </div>
