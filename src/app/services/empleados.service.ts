@@ -1,5 +1,5 @@
 import { Injectable, inject } from '@angular/core';
-import { environment } from '../environments/environment';
+
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Empleado } from '../interfaces/empleado.interface';
 import { firstValueFrom } from 'rxjs';
@@ -13,7 +13,7 @@ type ApiResponse = { success: string, token?: string };
 })
 export class EmpleadosService {
 
-  private baseUrl: string = `${environment.apiUrl}/empleados`;
+  private baseUrl: string = `http://localhost:3000/empleados`;
 
   private httpClient = inject(HttpClient);
 
