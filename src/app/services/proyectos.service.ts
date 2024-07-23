@@ -11,7 +11,8 @@ export class ProyectosService {
 
   constructor() { }
 
-  private baseUrl = `${environment.apiUrl}/api/projects`;
+  private baseUrl = 'http://localhost:3000/api/projects';
+  //TODO:donde esta mal la url?
 
   private httpClient = inject(HttpClient);
 
