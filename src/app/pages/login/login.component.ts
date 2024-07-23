@@ -20,10 +20,9 @@ export class LoginComponent {
     email: new FormControl(null, [
       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)
     ]),
-    password: new FormControl(null, [
-      Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{4,12}$/)
-    ]),
-    repite_password: new FormControl(),
+    password: new FormControl(null, []),
+    //borre el validador que no va!
+    
   });
 
   async onSubmit() {
@@ -36,7 +35,7 @@ export class LoginComponent {
           icon: 'success',
         });
 
-        localStorage.setItem('crmtoken', response.token!);
+        localStorage.setItem('token', response.token!);
         this.router.navigateByUrl('/usuarios/registro');
 
         this.formularioLogin.reset();
@@ -52,18 +51,6 @@ export class LoginComponent {
       Object.values(this.formularioLogin.controls).forEach(control => {
         control.markAsTouched();
       });
-    }
-  }
-
-  passwordValidator(form: FormGroup) {
-    const passwordControl = form.get('password');
-    const passwordRepeatControl = form.get('repite_password');
-
-    if (passwordControl?.value === passwordRepeatControl?.value) {
-      return null;
-    } else {
-      passwordRepeatControl?.setErrors({ passwordvalidator: true });
-      return { passwordvalidator: true };
     }
   }
 

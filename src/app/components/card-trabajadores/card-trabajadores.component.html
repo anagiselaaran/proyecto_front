@@ -1,0 +1,18 @@
+
+@if (trabajador) {
+    <div class="card mb-2" >
+        <h3>{{trabajador.name}} {{trabajador.surname}}</h3>
+        <p>Departamento: {{trabajador.department}}</p>
+        <p>Email: {{trabajador.email}}</p>
+        <p>Role: {{trabajador.role}}</p>
+        <p>Horas por Contrato: {{trabajador.contracted_hours}}</p>
+        <p>Fecha creacion Perfil: {{trabajador.created_at}}</p>
+        @if (trabajador.is_active) {
+            <p>Empleado <span class="active">activo</span></p>
+        }@else {
+            <p>Empleado <span class="inactive">inactivo</span></p>
+        }
+
+    </div>
+
+}

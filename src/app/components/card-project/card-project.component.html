@@ -1,0 +1,16 @@
+@if (project) {
+    <div class="card">
+        <h3>Nombre proyecto: {{project.name}}</h3>
+        <p>Departamento: {{project.department}}</p>
+        <p>Id pryecto: {{project.id}}</p>
+        <p>Fecha creación: {{project.created_at}}</p>
+        <p>Fecha de entrega: {{project.limit_date}}</p>
+        @if(project.is_active){
+           <p>Proyecto <span class="activo">Activo</span></p>
+        }@else {
+            <p>Proyecto <span class="inactivo">inactivo</span></p>
+        }
+        <button [routerLink]="['/projects',project.id]">Ver detalles</button>
+    </div>
+    
+}
