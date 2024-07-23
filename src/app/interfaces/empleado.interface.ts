@@ -11,3 +11,9 @@ export interface Empleado {
     created_at?: Date;
     updated_at?: Date;
 }
+
+export interface Password {
+    oldPassword: string;
+    newPassword: string;
+    newRepPassword: string;
+}
