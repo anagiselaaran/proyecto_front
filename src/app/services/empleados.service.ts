@@ -32,7 +32,8 @@ export class EmpleadosService {
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(this.httpClient.get<Empleado[]>(this.baseUrl));
   }
-  getById(): Promise<Empleado[]>{
+
+  getById(userId: number): Promise<Empleado> {
     return firstValueFrom(
       this.httpClient.get<Empleado>(this.baseUrl + '/' + userId)
     );
