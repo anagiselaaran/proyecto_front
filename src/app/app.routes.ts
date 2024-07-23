@@ -7,7 +7,8 @@ import { authGuard } from './guards/auth.guard';
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'admin', component:AdminPageComponent, canActivate:[authGuard, roleGuardGuard]},
+    { path: 'admin', component: AdminPageComponent, canActivate: [authGuard, roleGuardGuard] },
+   /*  { path: 'projects/:projectId', component: ,canActivate: [authGuard, roleGuardGuard]} para Cami*/
     { path: '**', redirectTo: '/login' },
 ];
 //TODO: agregar guard auth en las rutas q faltan

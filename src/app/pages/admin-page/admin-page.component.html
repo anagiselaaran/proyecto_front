@@ -1,7 +1,7 @@
 
     <main>
         <h1 class="text-center">Bienvenido Admin</h1>
-        <div>
+        <div class="top_trabajadores">
             <h3 class="text-center">Trabajadores</h3>
             <div class="trabajadores">
                 @for (trabajador  of arrTrabajadores; track trabajador.id) {
@@ -12,10 +12,6 @@
         <div>
             <div class="top_project">
                 <h3 class="text-center">Proyectos</h3> 
-                <!-- <button [routerLink]="">Crear Proyecto</button> -->
-                <!-- //TODO: agregar link a register -->
-            </div>
-            <div class="projects">
                 @for (project of arrProyectos; track project.id) {
                     <card-project [project]="project"></card-project>
                 }

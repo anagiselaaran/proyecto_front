@@ -1,8 +1,8 @@
 import { Injectable, inject } from '@angular/core';
-import { environment } from '../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Empleado } from '../interfaces/empleado.interface';
 import { firstValueFrom } from 'rxjs';
+import { environment } from '../../environments/environment.development';
 
 type LoginBody = { email: string, password: string };
 type ApiResponse = { success: string, token?: string };
