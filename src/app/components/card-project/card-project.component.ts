@@ -10,5 +10,5 @@ import { Proyecto } from '../../interfaces/proyecto.interface';
 })
 export class CardProjectComponent {
 
-  @Input() project:Proyecto | null=null
+  @Input() project!:Proyecto 
 }
