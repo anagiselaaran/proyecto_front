@@ -22,7 +22,7 @@ export class LoginComponent {
     ]),
     password: new FormControl(null, []),
     //borre el validador que no va!
-    
+
   });
 
   async onSubmit() {

@@ -22,13 +22,16 @@ export class EmpleadosService {
       this.httpClient.post<ApiResponse>(this.baseUrl + '/login', body)
     );
   }
+  create(body: Empleado): Promise<Empleado> {
+    return firstValueFrom(
+      this.httpClient.post<Empleado>(this.baseUrl, body)
+    );
 
- 
-
+  }
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(
       this.httpClient.get<Empleado[]>(this.baseUrl)
-     
+
     );
   }
 }
