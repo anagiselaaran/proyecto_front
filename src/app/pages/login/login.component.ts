@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { EmpleadosService } from '../../services/empleados.service';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -52,6 +52,8 @@ export class LoginComponent {
         control.markAsTouched();
       });
     }
+
+    this.router.navigateByUrl('/timer');
   }
 
   checkError(controlName: string, errorName: string) {
