@@ -1,4 +1,8 @@
 import { Injectable, inject } from '@angular/core';
+<<<<<<< HEAD
+
+=======
+>>>>>>> 705ba188fe880efc7a2166c9e700a660fe71f163
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Empleado } from '../interfaces/empleado.interface';
 import { firstValueFrom } from 'rxjs';
@@ -28,6 +32,8 @@ export class EmpleadosService {
     );
 
   }
+
+
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(
       this.httpClient.get<Empleado[]>(this.baseUrl)
