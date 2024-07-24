@@ -4,11 +4,12 @@ import { Empleado } from '../../interfaces/empleado.interface';
 import { EmpleadosService } from '../../services/empleados.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { UserProjectsComponent } from '../../components/user-projects/user-projects.component';
 
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, UserProjectsComponent],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

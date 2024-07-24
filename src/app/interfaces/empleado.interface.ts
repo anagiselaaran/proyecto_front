@@ -17,3 +17,11 @@ export interface Password {
     newPassword: string;
     newRepPassword: string;
 }
+export interface UserProjects {
+    id: number;
+    name: string;
+    is_active: boolean;
+    limit_date: string;
+    hours_by_project: number;
+    date: Date;
+}

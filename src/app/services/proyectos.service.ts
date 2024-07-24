@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment.development';
   providedIn: 'root'
 })
 export class ProyectosService {
+ 
 
   constructor() { }
 
@@ -33,4 +34,5 @@ export class ProyectosService {
       this.httpClient.get<Proyecto[]>(this.baseUrl)
     )
   }
+  
 }

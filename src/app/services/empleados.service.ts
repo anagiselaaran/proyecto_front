@@ -1,8 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Empleado, Password } from '../interfaces/empleado.interface';
+import { Empleado, Password, UserProjects } from '../interfaces/empleado.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../environments/environment.development';
+import { Proyecto } from '../interfaces/proyecto.interface';
 
 type LoginBody = { email: string; password: string };
 type ApiResponse = { success: string; token?: string };
@@ -27,7 +28,13 @@ export class EmpleadosService {
     );
 
   }
-
+  getProyectosPorUsuario(): Promise<UserProjects[]> {
+    return firstValueFrom(
+      this.httpClient.get<UserProjects[]>(`${this.baseUrl}/projects`)
+    )
+  }
+/*   asignarHorasAProyecto(userId: number, projectId: number, horas: number) {
+  } */
 
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(this.httpClient.get<Empleado[]>(this.baseUrl));
@@ -36,6 +43,12 @@ export class EmpleadosService {
   getById(userId: number): Promise<Empleado> {
     return firstValueFrom(
       this.httpClient.get<Empleado>(this.baseUrl + '/' + userId)
+    );
+  }
+  
+  asignHoursToProjects(body:any): Promise<any> {
+    return firstValueFrom(
+      this.httpClient.put<any>(`${this.baseUrl}/edit/hoursProjects`, body)
     );
   }
 
