@@ -27,12 +27,6 @@ export class EmpleadosService {
     );
 
   }
-  getById(user_id:number):Promise<Empleado> {
-    return firstValueFrom(
-      this.httpClient.get<Empleado>(`${this.baseUrl}/${user_id}`)
-    )
-  }
-
 
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(this.httpClient.get<Empleado[]>(this.baseUrl));
