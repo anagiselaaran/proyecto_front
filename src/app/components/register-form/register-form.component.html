@@ -48,8 +48,9 @@
                             <div class="form-group flex-item">
                                 <label class="form-label">Departamento</label>
                                 <select class="form-select form-control" formControlName="departamento">
+                                    <option value="desarrollo">Development</option>
+                                    <option value="recursos-humanos">Recursos Humanos</option>
                                     <option value="direccion">Administración</option>
-                                    <option value="desarrollo">Recursos Humanos</option>
                                     <option value="diseño">Marketing</option>
                                 </select>
                                 @if (checkError('departamento', 'required')) {

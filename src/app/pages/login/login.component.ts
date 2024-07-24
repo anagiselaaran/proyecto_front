@@ -50,6 +50,7 @@ export class LoginComponent {
     } else {
       Object.values(this.formularioLogin.controls).forEach(control => {
         control.markAsTouched();
+
       });
     }
   }
