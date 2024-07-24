@@ -6,6 +6,8 @@ import { authGuard } from './guards/auth.guard';
 import { RegisterComponent } from './pages/register/register.component';
 import { ControlHoursComponent } from './pages/control-hours/control-hours.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { TimerPageComponent } from './pages/timer-page/timer-page.component';
+import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -13,8 +15,11 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'admin', component: AdminPageComponent, canActivate: [authGuard, roleGuardGuard] },
     { path: 'control_hours/:user_id', component: ControlHoursComponent},
+    { path: "timer", component: TimerPageComponent },
     /*  { path: 'projects/:projectId', component: ,canActivate: [authGuard, roleGuardGuard]} para Cami*/
     { path: 'profile/:userId', component: ProfileComponent },
+    { path: 'proyectos', component: ProyectosComponent },
     { path: '**', redirectTo: '/login' }
+    
 ];
 //TODO: agregar guard auth en las rutas q faltan

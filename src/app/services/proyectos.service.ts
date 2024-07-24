@@ -12,7 +12,7 @@ export class ProyectosService {
 
 
   private baseUrl = `${environment.apiUrl}/api/projects`;
-  
+
 
   private httpClient = inject(HttpClient);
 

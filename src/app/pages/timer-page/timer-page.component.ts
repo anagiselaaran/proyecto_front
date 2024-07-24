@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TimerComponent } from '../../components/timer/timer.component';
 import { ClockComponent } from '../../components/clock/clock.component';
+import { Proyecto } from '../../interfaces/proyecto.interface';
+import { ProyectosService } from '../../services/proyectos.service';
 
 @Component({
   selector: 'app-timer-page',
@@ -10,8 +12,10 @@ import { ClockComponent } from '../../components/clock/clock.component';
   styleUrl: './timer-page.component.css',
 })
 export class TimerPageComponent {
+  proyectosService = inject(ProyectosService);
+
   workHours: number = 0;
-  // projectList: Project[] = [];
+  projectList: Proyecto[] = [];
 
   onEndShift(event: number | undefined) {
     if (event !== undefined) {
