@@ -4,13 +4,13 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'dptoTransform',
     standalone: true
 })
-export class DtoTransformPipe implements PipeTransform {
+export class DptoTransformPipe implements PipeTransform {
     private departamentos: any = {
-        "desarrollo": "Desarrollo",
-        "direccion": "Dirección",
-        "recursoshumanos": "Recursos Humanos",
-        "diseño": "Diseño"
-    }
+        "development": "Desarrollo",
+        "marketing": "Marketing",
+        "human_resourses": "Recursos Humanos",
+        "administration": "Administración"
+    } 
 
     transform(value: unknown, ...args: unknown[]): unknown {
         if (typeof value === 'string') {

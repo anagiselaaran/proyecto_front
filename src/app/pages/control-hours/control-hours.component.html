@@ -1,10 +1,21 @@
-@if (usuario) {
-    <h3>Hola {{usuario.name}}</h3>
-    <div class="user">
-    
-    
-    </div>
-    <p>{{usuario.name}}</p>
 
-}
+<main class="container">
+    @if (usuario) {
+        <h3>Hola {{usuario.name | uppercase}}</h3>
+        <div class="user">
+            <p>{{usuario.name | titlecase}} {{usuario.surname | titlecase}}</p>
+            <p>Departamento: {{usuario.department | dptoTransform }}</p>
+            <p>Email: {{usuario.email}}</p>
+            <p>Role: {{usuario.role}}</p>
+            <p>ID: {{usuario.id}}</p>
+            @if (usuario.is_active) {
+            <p>Empleado <span class="active">activo</span></p>
+            }@else {
+            <p>Empleado <span class="inactive">inactivo</span></p>
+            }
+        </div>
+    
+    }
+
+</main>
 

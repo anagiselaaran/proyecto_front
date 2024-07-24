@@ -2,11 +2,14 @@ import { Component, inject } from '@angular/core';
 import { EmpleadosService } from '../../services/empleados.service';
 import { ActivatedRoute } from '@angular/router';
 import { Empleado } from '../../interfaces/empleado.interface';
+import { TitleCasePipe, UpperCasePipe } from '@angular/common';
+import { DptoTransformPipe } from '../../pipes/dpto-transform.pipe';
+
 
 @Component({
   selector: 'control-hours',
   standalone: true,
-  imports: [],
+  imports: [UpperCasePipe,TitleCasePipe,DptoTransformPipe],
   templateUrl: './control-hours.component.html',
   styleUrl: './control-hours.component.css'
 })
