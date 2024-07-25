@@ -10,7 +10,7 @@ import { Time } from '../interfaces/time.interface';
 export class TimeService {
   private httpClient = inject(HttpClient);
 
-  private baseUrl = `${environment.apiUrl}/api/times`;
+  private baseUrl = `${environment.apiUrl}/api/work-hours`;
 
   getAll(): Promise<Time[]> {
     return firstValueFrom(this.httpClient.get<Time[]>(this.baseUrl));

@@ -8,7 +8,7 @@ export class DptoTransformPipe implements PipeTransform {
     private departamentos: any = {
         "development": "Desarrollo",
         "marketing": "Marketing",
-        "human_resourses": "Recursos Humanos",
+        "human-resources": "Recursos Humanos",
         "administration": "Administración"
     } 
 
