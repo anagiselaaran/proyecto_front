@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 interface CustomPayload extends JwtPayload{
   user_id: string,
-  user_role:string
+  role:string
 }
 export const roleGuardGuard: CanActivateFn = (route, state) => {
   
@@ -14,7 +14,7 @@ export const roleGuardGuard: CanActivateFn = (route, state) => {
   console.log(decoded);
   
 
-  if (decoded.user_role === 'admin') {
+  if (decoded.role === 'admin') {
     return true
   } else {
     Swal.fire('Zona restringida', 'Solo los administradores pueden realizar modificaciones', 'warning');

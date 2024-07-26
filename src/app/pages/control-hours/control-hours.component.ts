@@ -6,6 +6,7 @@ import { DatePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { DptoTransformPipe } from '../../pipes/dpto-transform.pipe';
 import { TimeService } from '../../services/time.service';
 import { Time } from '../../interfaces/time.interface';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 
 

@@ -53,7 +53,7 @@ export class LoginComponent {
       });
     }
 
-    this.router.navigateByUrl('/timer');
+    this.router.navigate(['/admin']);
   }
 
   checkError(controlName: string, errorName: string) {

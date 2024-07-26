@@ -5,7 +5,8 @@ import { EmpleadosService } from '../../services/empleados.service';
 import { ProyectosService } from '../../services/proyectos.service';
 import { Proyecto } from '../../interfaces/proyecto.interface';
 import { CardProjectComponent } from '../../components/card-project/card-project.component';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 
 @Component({
   selector: 'app-admin-page',

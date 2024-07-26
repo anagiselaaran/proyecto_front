@@ -33,6 +33,7 @@ export class ProfileComponent {
 
         this.empleado = await this.empleadosService.getById(Number(params['userId']))// Obtiene los datos del empleado por su ID.
         this.userId = this.empleado.id
+        
       } catch (error:any) {
         this.errorMessage = error.message;
       }

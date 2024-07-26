@@ -1,7 +1,15 @@
 import { Component, inject } from '@angular/core';
-import { Router, RouterLink, RouterLinkActive } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
 import Swal from 'sweetalert2';
-import { EmpleadosService } from '../services/empleados.service';
+import { EmpleadosService } from '../../services/empleados.service';
+import { Empleado } from '../../interfaces/empleado.interface';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+
+interface CustomPayload extends JwtPayload{
+  userId: number,
+  role: string,
+  iat:number
+}
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,6 +24,33 @@ export class NavBarComponent {
   
   router = inject(Router);
   empleadosService = inject(EmpleadosService)
+  activatedRoute = inject(ActivatedRoute)
+  user!:Empleado
+  userId!:number
+
+ 
+  //display:block
+  constructor() {
+      this.cargarUser()
+    }
+  
+  cargarUser() {
+    const token = localStorage.getItem('token')
+    if (!token) {
+      throw new Error('No hay token')
+    }
+
+    const usTok = jwtDecode<CustomPayload>(token)
+    this.userId = usTok.userId
+
+    console.log(typeof this.userId);
+    
+    console.log(this.userId);
+    
+  }
+
+
+  
 
   async onClickLogout() {
     const result = await Swal.fire({
@@ -32,12 +67,13 @@ export class NavBarComponent {
     }
   }
 
+  /* SE PUEDE ELIMINAR ESTA DE MAS 
   logout() { 
     if (localStorage.getItem('token')) {
       return true;
     } else {
       return false;
     }
-  }
+  } */
 
 }
