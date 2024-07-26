@@ -4,6 +4,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
+
+
 @Component({
   selector: 'login',
   standalone: true,
@@ -12,8 +14,10 @@ import Swal from 'sweetalert2';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+
   empleadosService = inject(EmpleadosService);
   router = inject(Router)
+  
 
 
   formularioLogin: FormGroup = new FormGroup({
@@ -53,8 +57,10 @@ export class LoginComponent {
       });
     }
 
-    this.router.navigate(['/admin']);
+    this.router.navigate(['/admin','profile']);
   }
+
+
 
   checkError(controlName: string, errorName: string) {
     return this.formularioLogin.get(controlName)?.hasError(errorName) && this.formularioLogin.get(controlName)?.touched;

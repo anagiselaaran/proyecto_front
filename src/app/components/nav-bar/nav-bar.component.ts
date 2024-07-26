@@ -29,7 +29,6 @@ export class NavBarComponent {
   userId!:number
 
  
-  //display:block
   constructor() {
       this.cargarUser()
     }
@@ -42,10 +41,8 @@ export class NavBarComponent {
 
     const usTok = jwtDecode<CustomPayload>(token)
     this.userId = usTok.userId
-
-    console.log(typeof this.userId);
-    
     console.log(this.userId);
+    
     
   }
 
@@ -66,14 +63,5 @@ export class NavBarComponent {
       this.router.navigateByUrl('/login');
     }
   }
-
-  /* SE PUEDE ELIMINAR ESTA DE MAS 
-  logout() { 
-    if (localStorage.getItem('token')) {
-      return true;
-    } else {
-      return false;
-    }
-  } */
 
 }

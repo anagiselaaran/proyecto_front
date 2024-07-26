@@ -1,11 +1,13 @@
-import { CanActivateFn } from '@angular/router';
+
+import { CanActivateFn} from '@angular/router';
 import { JwtPayload, jwtDecode} from 'jwt-decode'
 import Swal from 'sweetalert2';
 
 
 interface CustomPayload extends JwtPayload{
   user_id: string,
-  role:string
+  role: string,
+  iat:number
 }
 export const roleGuardGuard: CanActivateFn = (route, state) => {
   

@@ -15,15 +15,14 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     
     {
-        path: 'admin', component: DashboardComponent, canActivate: [authGuard, roleGuardGuard], children: [
+        path: 'admin', component: DashboardComponent, canActivate: [authGuard], children: [
         
-            { path: '', component: AdminPageComponent },
-
-            { path: 'profile/:userId', component: ProfileComponent },
-            { path: 'register', component: RegisterComponent },
+            { path: 'profile', component: ProfileComponent },
+            { path: 'panel', component: AdminPageComponent, canActivate: [roleGuardGuard] },
+            { path: 'register', component: RegisterComponent, canActivate: [roleGuardGuard]},
             { path: 'control_hours/:user_id', component: ControlHoursComponent },
             { path: "timer", component: TimerPageComponent },
-            { path: 'proyectos', component: ProyectosComponent }
+            { path: 'proyectos', component: ProyectosComponent, canActivate: [roleGuardGuard] }
 
     ] },
     
@@ -31,3 +30,4 @@ export const routes: Routes = [
     
 ];
 //TODO: agregar guard auth en las rutas q faltan
+

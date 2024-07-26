@@ -5,6 +5,14 @@ import { EmpleadosService } from '../../services/empleados.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+
+interface CustomPayload extends JwtPayload {
+  userId: number,
+  role: string,
+  iat: number
+}
+
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -20,6 +28,7 @@ export class ProfileComponent {
   empleadosService = inject(EmpleadosService);
   errorMessages: string[] = [];
   userId: string = "";
+
   
   newForm: FormGroup = new FormGroup({
     oldPassword: new FormControl(),
@@ -27,17 +36,22 @@ export class ProfileComponent {
     newRepPassword: new FormControl(),
   })
   
-  ngOnInit() {
-    this.activatedRoute.params.subscribe(async params => {// Suscripción a los parámetros de la ruta
-      try {
+  async ngOnInit() {
+    try {
+      const token = localStorage.getItem('token')
+      if (!token) {
+        throw new Error('No hay token')
+      }
 
-        this.empleado = await this.empleadosService.getById(Number(params['userId']))// Obtiene los datos del empleado por su ID.
+      const elTok = jwtDecode<CustomPayload>(token)
+      const userId = elTok.userId
+        this.empleado = await this.empleadosService.getById(userId)// Obtiene los datos del empleado por su ID.
         this.userId = this.empleado.id
         
       } catch (error:any) {
         this.errorMessage = error.message;
       }
-    })
+   
   }
   
   async onSubmit() {
