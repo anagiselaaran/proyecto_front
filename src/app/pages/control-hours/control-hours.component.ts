@@ -6,7 +6,6 @@ import { DatePipe, TitleCasePipe, UpperCasePipe } from '@angular/common';
 import { DptoTransformPipe } from '../../pipes/dpto-transform.pipe';
 import { TimeService } from '../../services/time.service';
 import { Time } from '../../interfaces/time.interface';
-import{ DateTime} from 'luxon'
 
 
 
@@ -28,6 +27,7 @@ export class ControlHoursComponent {
   end:string=''
   periodo: Time[] = []
   id_user!: number
+  errorMessage:string=''
  
   
 
@@ -39,12 +39,8 @@ export class ControlHoursComponent {
       this.id_user = Number(user.id)
       console.log(user);
       const result = await this.timeService.getByUserId(params['user_id'])
-      console.log(result);
       this.resultado = result
       console.log(this.resultado);
-
-     
-     
       
     })
   }
@@ -52,26 +48,28 @@ export class ControlHoursComponent {
   dateStart($event: any) {
     const startDay = $event.target.value as HTMLInputElement
     console.log('start', startDay);
-    this.start = startDay.toString()
-    console.log(typeof this.start);
+    this.start = startDay.toString();
 
     
   }
   dateEnd($event: any) {
     const endDay = $event.target.value as HTMLInputElement
     console.log('end', endDay);
-    this.end = endDay.toString()
-    console.log(typeof this.end);
+    this.end = endDay.toString();
     
   }
 
   async getPeriod($event:any) {
-    const period = await this.timeService.getByUserIdAndPeriod(this.id_user,this.start, this.end)
-    console.log(period);
-    this.periodo = period
+    try {
+      const period = await this.timeService.getByUserIdAndPeriod(this.id_user,this.start, this.end)
+      console.log(period);
+      this.resultado = period
     
+    } catch (error:any) {
+      console.log(error.error.message);
+      this.errorMessage = error.error.message
+    }
    
- //.date.toFormat()
   }
 
 }
