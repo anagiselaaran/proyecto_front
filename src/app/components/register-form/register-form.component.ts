@@ -2,7 +2,7 @@ import { Component, inject, input } from '@angular/core';
 import { RegisterComponent } from '../../pages/register/register.component';
 import { Empleado } from '../../interfaces/empleado.interface';
 import { EmpleadosService } from '../../services/empleados.service';
-import { DtoTransformPipe } from "../../pipes/dpto-transform.pipe";
+import { DptoTransformPipe } from "../../pipes/dpto-transform.pipe";
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'register-form',
   standalone: true,
-  imports: [ReactiveFormsModule, RegisterComponent, DtoTransformPipe],
+  imports: [ReactiveFormsModule, RegisterComponent, DptoTransformPipe],
   templateUrl: './register-form.component.html',
   styleUrl: './register-form.component.css'
 })

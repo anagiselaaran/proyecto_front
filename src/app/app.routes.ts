@@ -12,7 +12,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'register', component: RegisterComponent },
     { path: 'admin', component: AdminPageComponent, canActivate: [authGuard, roleGuardGuard] },
-    { path: "timer/:userId", component: TimerPageComponent, canActivate: [authGuard] },
+    { path: "timer", component: TimerPageComponent, canActivate: [authGuard] },
     /*  { path: 'projects/:projectId', component: ,canActivate: [authGuard, roleGuardGuard]} para Cami*/
     { path: 'profile/:userId', component: ProfileComponent },
     { path: '**', redirectTo: '/login' }

@@ -9,7 +9,6 @@ export interface Empleado {
     contracted_hours: number;
     is_active: boolean;
     created_at?: Date;
-    updated_at?: Date;
 }
 
 export interface Password {
@@ -23,4 +22,7 @@ export interface UserProjects {
     name: string;
     project_work_hours: number;
     start_date: Date;
+    //TODO: Added department and is_active
+    department: string;
+    is_active: boolean;
 }

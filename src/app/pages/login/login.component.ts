@@ -38,12 +38,6 @@ export class LoginComponent {
 
         localStorage.setItem('token', response.token!);
 
-        // TODO: Discuss userId on session or local storage with team
-        this.userId = response.id.toString()
-        //// localStorage.setItem('id', this.userId);
-        sessionStorage.setItem('id', this.userId);
-        //!
-
         this.router.navigateByUrl('/usuarios/registro');
 
         this.formularioLogin.reset();
@@ -61,7 +55,7 @@ export class LoginComponent {
       });
     }
 
-    this.router.navigateByUrl(`/timer/${this.userId}`);
+    this.router.navigateByUrl(`/timer`);
   }
 
   checkError(controlName: string, errorName: string) {
