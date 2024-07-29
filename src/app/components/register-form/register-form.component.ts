@@ -23,37 +23,52 @@ export class RegisterFormComponent {
 
 
   formulario: FormGroup = new FormGroup({
-    nombre: new FormControl(null, [Validators.required]),
-    apellidos: new FormControl(null, [Validators.required]),
+    name: new FormControl(null, [Validators.required]),
+    surname: new FormControl(null, [Validators.required]),
     email: new FormControl(null, [
       Validators.required,
       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)
     ]),
-    telefono: new FormControl(null, [
+    /* telefono: new FormControl(null, [
+       Validators.required,
+       Validators.pattern(/^[1-9]{9}$/)
+     ]),*/
+    department: new FormControl(null, [Validators.required]),
+    /*salario: new FormControl(null, [
+     // Validators.required,
+     // Validators.min(0)
+
+    ]),*/
+    role: new FormControl(null, [
       Validators.required,
-      Validators.pattern(/^[1-9]{9}$/)
+
     ]),
-    departamento: new FormControl(null, [Validators.required]),
-    salario: new FormControl(null, [
+    contracted_hours: new FormControl(null, [
       Validators.required,
-      Validators.min(0)
     ]),
+
+
+
+
   });
 
   async onSubmit() {
     if (this.formulario.valid) {
-      let response = await this.empleadosService.create(this.formulario.value);
-      console.log(response);
-
-      this.formulario.reset();
+      try {
+        const response = await this.empleadosService.create(this.formulario.value);
+        Swal.fire('Éxito', 'Se ha creado el nuevo empleado exitosamente', 'success');
+        this.formulario.reset();
+      } catch (error: any) {
+        /*this.errorMessages = error.map((err: any) => err.message);*/
+        Swal.fire('Error', 'Hubo un problema al crear el nuevo empleado', 'error');
+      }
     } else {
-      alert('Falta completar el formulario.');
+      Swal.fire('Formulario incompleto', 'Falta completar el formulario.', 'warning');
       Object.values(this.formulario.controls).forEach(control => {
         control.markAsTouched();
       });
     }
   }
-
   checkError(controlName: string, errorName: string) {
     return this.formulario.get(controlName)?.hasError(errorName) && this.formulario.get(controlName)?.touched;
   }

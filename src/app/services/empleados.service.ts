@@ -22,6 +22,8 @@ export class EmpleadosService {
     );
   }
   create(body: Empleado): Promise<Empleado> {
+    console.log(body);
+
     return firstValueFrom(
       this.httpClient.post<Empleado>(this.baseUrl + '/new', body)
     );
@@ -39,10 +41,16 @@ export class EmpleadosService {
     );
   }
 
+  getUsersByProject(projectId: number): Promise<Empleado[]> {
+    return firstValueFrom(
+      this.httpClient.get<Empleado[]>(this.baseUrl + '/project_user' + '/' + projectId)
+    );
+  }
+
   updatePassword(userId: number, body: Password): Promise<any> {
     console.log(body)
     return firstValueFrom(
       this.httpClient.put<any>(this.baseUrl + '/profile/edit/' + userId, body)
-      );
+    );
   }
 }

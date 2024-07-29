@@ -21,7 +21,6 @@ export class LoginComponent {
       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)
     ]),
     password: new FormControl(null, []),
-    //borre el validador que no va!
 
   });
 

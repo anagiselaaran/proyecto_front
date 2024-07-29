@@ -1,0 +1,9 @@
+.project-users-card {
+    margin-bottom: 0;
+    /* Elimina el margen inferior entre cards */
+}
+
+.card {
+    padding-top: 0;
+    padding-bottom: 0;
+}

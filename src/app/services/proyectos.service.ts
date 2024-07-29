@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { firstValueFrom } from 'rxjs';
-import { Proyecto } from '../interfaces/proyecto.interface';
 import { environment } from '../../environments/environment.development';
+import { Proyecto } from '../interfaces/proyecto.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -28,7 +28,7 @@ export class ProyectosService {
     );
   }
 
-    getAll(): Promise<Proyecto[]> {
+  getAll(): Promise<Proyecto[]> {
     return firstValueFrom(
       this.httpClient.get<Proyecto[]>(this.baseUrl)
     )

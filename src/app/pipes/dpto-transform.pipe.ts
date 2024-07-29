@@ -6,10 +6,10 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class DtoTransformPipe implements PipeTransform {
     private departamentos: any = {
-        "desarrollo": "Desarrollo",
-        "direccion": "Dirección",
-        "recursoshumanos": "Recursos Humanos",
-        "diseño": "Diseño"
+        "development": "Desarrollo",
+        "human-resources": "Recursos Humanos",
+        "administration": "Administración",
+        "marketing": "Marketing"
     }
 
     transform(value: unknown, ...args: unknown[]): unknown {

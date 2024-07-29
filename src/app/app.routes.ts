@@ -4,11 +4,11 @@ import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 import { roleGuardGuard } from './guards/role-guard.guard';
 import { authGuard } from './guards/auth.guard';
 import { RegisterComponent } from './pages/register/register.component';
-import { AsignedUsersComponent } from './pages/asigned-users/asigned-users.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { TimerPageComponent } from './pages/timer-page/timer-page.component';
 
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
+import { ProjectUsersComponent } from './pages/project-users/project-users.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -16,12 +16,12 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent },
     { path: 'admin', component: AdminPageComponent, canActivate: [authGuard, roleGuardGuard] },
     {
-        path: 'projects/:projectId', component: AsignedUsersComponent /*canActivate: [authGuard, roleGuardGuard] },*/
+        path: 'projects/:projectId', component: ProjectUsersComponent /*canActivate: [authGuard, roleGuardGuard] },*/
     },
     { path: '**', redirectTo: '/login' },
     { path: "timer", component: TimerPageComponent },
     { path: 'profile/:userId', component: ProfileComponent },
-    { path: 'proyectos', component: ProyectosComponent },
+    { path: 'projects', component: ProyectosComponent },
     { path: '**', redirectTo: '/login' }
 
 ];
