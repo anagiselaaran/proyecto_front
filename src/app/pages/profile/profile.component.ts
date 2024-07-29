@@ -13,21 +13,22 @@ import Swal from 'sweetalert2';
   styleUrl: './profile.component.css'
 })
 export class ProfileComponent {
-  
+
   activatedRoute = inject(ActivatedRoute)  // Inyección del servicio ActivatedRoute
   empleado: Empleado | null = null;  // Inyección del servicio EmpleadosService
   errorMessage: string | null = null; // mostrar los errores
   empleadosService = inject(EmpleadosService);
   errorMessages: string[] = [];
   userId: string = "";
-  
+
   newForm: FormGroup = new FormGroup({
     oldPassword: new FormControl(),
     newPassword: new FormControl(),
     newRepPassword: new FormControl(),
   })
-  
+
   ngOnInit() {
+    // TODO: Change after changing route on BACK
     this.activatedRoute.params.subscribe(async params => {// Suscripción a los parámetros de la ruta
       try {
 
@@ -38,7 +39,7 @@ export class ProfileComponent {
       }
     })
   }
-  
+
   async onSubmit() {
     const newPassword = this.newForm.get('newPassword')?.value;
     const newRepPassword = this.newForm.get('newRepPassword')?.value;
@@ -54,7 +55,8 @@ export class ProfileComponent {
 
    try {
       console.log(this.newForm.value)
-     const response = await this.empleadosService.updatePassword(Number(this.userId), this.newForm.value);
+      //* Removed userId as parameter from updatePassword method
+     const response = await this.empleadosService.updatePassword(this.newForm.value);
       this.newForm.reset();
       Swal.fire({
         title: 'Success',
@@ -66,7 +68,7 @@ export class ProfileComponent {
         title: 'Error password',
         text: 'Error en  contraseña',
         icon: 'error',
-      }); 
+      });
     }
   }
 }

@@ -10,7 +10,7 @@ export class DptoTransformPipe implements PipeTransform {
         "marketing": "Marketing",
         "human-resources": "Recursos Humanos",
         "administration": "Administración"
-    } 
+    }
 
     transform(value: unknown, ...args: unknown[]): unknown {
         if (typeof value === 'string') {
