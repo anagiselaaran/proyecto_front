@@ -3,17 +3,11 @@ import { HttpClient } from '@angular/common/http';
 import { Empleado, Password, UserProjects } from '../interfaces/empleado.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../environments/environment';
-import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
+import { CustomPayload } from '../interfaces/jwtPayload.interface';
 
 type LoginBody = { email: string; password: string };
 type ApiResponse = { success: string; token?: string };
-
-// TODO: Decide if interface should be here or in a separate file
-export interface CustomPayload extends JwtPayload{
-  userId: number,
-  role: string,
-  iat:number
-}
 
 @Injectable({
   providedIn: 'root',
