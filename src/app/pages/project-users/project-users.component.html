@@ -2,11 +2,6 @@
     <h1 class="text-center">Empleados asignados a este proyecto</h1>
 </div>
 <div class="pt-3">
-    <h1>
-        @for (proy of arrProyectos; track proy.id) {
-        <project-users-card [proyecto]="proy" class="project-users-card"></project-users-card>
-        }
-    </h1>
     <div class="pt-0 p-0">
         @for (empl of arrEmpleados; track empl.id) {
         <project-users-card [empleado]="empl" class="project-users-card"></project-users-card>

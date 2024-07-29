@@ -27,13 +27,13 @@ export class NavBarComponent {
     });
 
     if (result.isConfirmed) {
-      localStorage.removeItem('crmtoken');
+      localStorage.removeItem('token');
       this.router.navigateByUrl('/login');
     }
   }
 
   logout() { 
-    if (localStorage.getItem('crmtoken')) {
+    if (localStorage.getItem('token')) {
       return true;
     } else {
       return false;

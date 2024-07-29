@@ -1,0 +1,111 @@
+.label-btn {
+  color: black;
+}
+
+.development {
+  background-color: var(--color-primary-80);
+
+  &:hover {
+    background-color: var(--color-primary);
+  }
+}
+.human-resources {
+  background-color: var(--color-background-80);
+
+  &:hover {
+    background-color: var(--color-background);
+  }
+}
+.marketing {
+  background-color: var(--color-accent-80);
+
+  &:hover {
+    background-color: var(--color-accent);
+  }
+}
+.administration {
+  background-color: var(--color-text-80);
+
+  &:hover {
+    background-color: var(--color-text);
+  }
+}
+
+.project-list .btn-check + label:hover {
+  width: 106%;
+}
+
+.dpt {
+  font-weight: 600;
+}
+
+.project-list .btn-check:checked {
+  & + label {
+    border-width: 2px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: black;
+  }
+  & + .development {
+    background-color: var(--color-primary);
+  }
+  & + .human-resources {
+    background-color: var(--color-background);
+  }
+  & + .marketing {
+    background-color: var(--color-accent);
+  }
+  & + .administration {
+    background-color: var(--color-text);
+  }
+  & + label p {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}
+
+.project-list input.btn-check:disabled + label {
+  opacity: 0.4;
+}
+
+div.container h3 {
+  color: white;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+div.divider {
+  border-bottom: #e6e6e6 3px solid;
+  margin-bottom: 35px;
+}
+
+div.projects {
+  border: var(--dark-grey) 3px solid;
+  border-radius: 15px;
+  background: linear-gradient(var(--color-text), var(--color-background));
+  background-color: #00000080;
+  background-blend-mode: multiply;
+
+  /* overflow-y: scroll; */
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .btn-outline-info {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+  }
+
+  & input.btn-check:checked + .btn-outline-info {
+    background-color: var(--color-primary);
+    color: black;
+  }
+}
+
+.msg {
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+}

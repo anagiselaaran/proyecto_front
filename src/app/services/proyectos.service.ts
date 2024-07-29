@@ -9,7 +9,7 @@ import { Proyecto } from '../interfaces/proyecto.interface';
 })
 export class ProyectosService {
 
-  constructor() { }
+
 
   private baseUrl = `${environment.apiUrl}/api/projects`;
 
@@ -31,6 +31,12 @@ export class ProyectosService {
   getAll(): Promise<Proyecto[]> {
     return firstValueFrom(
       this.httpClient.get<Proyecto[]>(this.baseUrl)
+    )
+  }
+
+  getByDepartment(dep: string): Promise<Proyecto[]> {
+    return firstValueFrom(
+      this.httpClient.get<Proyecto[]>(`${this.baseUrl}/department/` + dep)
     )
   }
 }

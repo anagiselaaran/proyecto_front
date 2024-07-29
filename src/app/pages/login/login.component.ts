@@ -15,6 +15,7 @@ export class LoginComponent {
   empleadosService = inject(EmpleadosService);
   router = inject(Router)
 
+  userId: string = ""
 
   formularioLogin: FormGroup = new FormGroup({
     email: new FormControl(null, [
@@ -35,6 +36,7 @@ export class LoginComponent {
         });
 
         localStorage.setItem('token', response.token!);
+
         this.router.navigateByUrl('/usuarios/registro');
 
         this.formularioLogin.reset();
@@ -53,7 +55,7 @@ export class LoginComponent {
       });
     }
 
-    this.router.navigateByUrl('/timer');
+    this.router.navigateByUrl(`/timer`);
   }
 
   checkError(controlName: string, errorName: string) {

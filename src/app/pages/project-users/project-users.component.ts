@@ -15,7 +15,6 @@ import { ProyectosService } from '../../services/proyectos.service';
 })
 export class ProjectUsersComponent implements OnInit {
   arrEmpleados: Empleado[] = [];
-
   proyectosService = inject(ProyectosService);
   arrProyectos: Proyecto[] = [];
   empleadosService = inject(EmpleadosService);

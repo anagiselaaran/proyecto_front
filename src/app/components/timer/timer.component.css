@@ -11,53 +11,8 @@
   );
   font-family: "Tomorrow", sans-serif;
 
-  /* width: 100%;
-  height: 100vh; */
-
-  width: 55%;
-  height: fit-content;
   border: var(--dark-grey) 3px solid;
   border-radius: 15px;
-
-  @media (width < 840px) {
-    .timer-container {
-      width: 250px;
-      height: 250px;
-    }
-
-    .timer-container > * {
-      font-size: 3rem;
-    }
-
-    .spinner {
-      position: absolute;
-      top: 46%;
-      & .loader {
-        width: 240px;
-        height: 240px;
-      }
-    }
-  }
-
-  @media (width < 600px) {
-    .timer-container {
-      width: 220px;
-      height: 220px;
-    }
-
-    .timer-container > * {
-      font-size: 2.5rem;
-    }
-
-    .spinner {
-      position: absolute;
-      top: 45.8%;
-      & .loader {
-        width: 210px;
-        height: 210px;
-      }
-    }
-  }
 }
 
 .timer-container {
@@ -67,14 +22,15 @@
   text-align: center;
   align-content: center;
   padding: 20px 0;
-  background-color: var(--aquamarine);
+  background-color: var(--color-secondary);
   border-radius: 50%;
-  border: 3px solid var(--dark-grey);
+  border: 3px solid var(--color-accent);
 }
 .timer-container > * {
   font-size: 4rem;
-  font-weight: bolder;
-  color: var(--dark-grey);
+  font-weight: 700;
+  color: whitesmoke;
+  text-shadow: 0 0 0.3rem var(--color-accent-80);
 }
 
 #play,
@@ -94,8 +50,8 @@
 #resume--btn {
   width: 50px;
   height: 50px;
-  border: 6px solid var(--dark-grey);
-  background-color: var(--aquamarine);
+  border: 6px solid var(--color-accent);
+  background-color: var(--color-secondary);
   display: inline-block;
   margin: 0 6px;
   border-radius: 50%;
@@ -104,12 +60,13 @@
 
   &:hover {
     transform: scale(1.15);
-    background-color: var(--dark-skyblue);
+    background-color: var(--color-secondary);
+    border: var(--color-accent);
     transition: all 0.2s ease;
   }
   &:active {
-    border: 5px solid var(--dark-grey);
-    background-color: var(--aquamarine);
+    border: 5px solid var(--color-accent);
+    background-color: var(--color-secondary);
     transform: scale(0.9);
     transition: all 0.2s ease;
   }
@@ -123,8 +80,8 @@ label[inert] {
 #pause--btn:active,
 #reset--btn:active,
 #resume--btn:active {
-  border: 6px solid var(--dark-grey);
-  background-color: var(--aquamarine);
+  border: 6px solid var(--color-accent);
+  background-color: var(--color-secondary);
 }
 
 #play--btn::after,
@@ -136,7 +93,7 @@ label[inert] {
   width: 0;
   height: 0;
   border: 12px solid transparent;
-  border-left-color: var(--dark-grey);
+  border-left-color: var(--color-accent);
   border-right-width: 18px;
   border-left-width: 18px;
   top: 50%;
@@ -145,14 +102,14 @@ label[inert] {
 }
 #pause--btn::after {
   border: 0px solid;
-  border-left: 8px solid var(--dark-grey);
-  border-right: 8px solid var(--dark-grey);
+  border-left: 8px solid var(--color-accent);
+  border-right: 8px solid var(--color-accent);
   width: 20px;
   height: 24px;
   transform: translate(-50%, -50%);
 }
 #reset--btn::after {
-  border: 10px solid var(--dark-grey);
+  border: 10px solid var(--color-accent);
   transform: translate(-50%, -50%);
 }
 
@@ -213,5 +170,45 @@ label[inert] {
   }
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
+@media (width < 1080px) {
+  .timer-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .timer-container > * {
+    font-size: 3rem;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 46.2%;
+    & .loader {
+      width: 270px;
+      height: 270px;
+    }
+  }
+}
+
+@media (width < 600px) {
+  .timer-container {
+    width: 230px;
+    height: 230px;
+  }
+
+  .timer-container > * {
+    font-size: 2.5rem;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 45.9%;
+    & .loader {
+      width: 220px;
+      height: 220px;
+    }
   }
 }

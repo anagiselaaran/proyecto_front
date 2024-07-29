@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
     name: 'dptoTransform',
     standalone: true
 })
-export class DtoTransformPipe implements PipeTransform {
+export class DptoTransformPipe implements PipeTransform {
     private departamentos: any = {
         "development": "Desarrollo",
         "human-resources": "Recursos Humanos",
