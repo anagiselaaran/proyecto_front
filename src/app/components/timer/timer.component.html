@@ -5,7 +5,7 @@
         <input name="state" type="radio" id="pause" (change)="pauseTimer()" />
         <input name="state" type="radio" id="resume" (change)="resumeTimer()" />
         <input name="state" type="radio" id="play" (change)="startTimer()" />
-        <div class="timer-container shadow">
+        <div class="shadow timer-container">
             <span>
                 @if (timer) {
                 {{timer | async}}

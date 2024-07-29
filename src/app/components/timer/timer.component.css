@@ -13,65 +13,6 @@
 
   border: var(--dark-grey) 3px solid;
   border-radius: 15px;
-
-  @media (width < 1080px) {
-    .timer-container {
-      width: 280px;
-      height: 280px;
-    }
-
-    .timer-container > * {
-      font-size: 3rem;
-    }
-
-    .spinner {
-      position: absolute;
-      top: 46%;
-      & .loader {
-        width: 270px;
-        height: 270px;
-      }
-    }
-  }
-  @media (width < 920px) {
-    .timer-container {
-      width: 250px;
-      height: 250px;
-    }
-
-    .timer-container > * {
-      font-size: 3rem;
-    }
-
-    .spinner {
-      position: absolute;
-      top: 46%;
-      & .loader {
-        width: 240px;
-        height: 240px;
-      }
-    }
-  }
-
-  @media (width < 600px) {
-    .timer-container {
-      width: 220px;
-      height: 220px;
-    }
-
-    .timer-container > * {
-      font-size: 2.5rem;
-    }
-
-    .spinner {
-      position: absolute;
-      top: 45.8%;
-      & .loader {
-        width: 210px;
-        height: 210px;
-      }
-    }
-  }
 }
 
 .timer-container {
@@ -229,5 +170,45 @@ label[inert] {
   }
   100% {
     clip-path: polygon(50% 50%, 0 0, 100% 0, 100% 100%, 0 100%, 0 0);
+  }
+}
+
+@media (width < 1080px) {
+  .timer-container {
+    width: 280px;
+    height: 280px;
+  }
+
+  .timer-container > * {
+    font-size: 3rem;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 46.2%;
+    & .loader {
+      width: 270px;
+      height: 270px;
+    }
+  }
+}
+
+@media (width < 600px) {
+  .timer-container {
+    width: 230px;
+    height: 230px;
+  }
+
+  .timer-container > * {
+    font-size: 2.5rem;
+  }
+
+  .spinner {
+    position: absolute;
+    top: 45.9%;
+    & .loader {
+      width: 220px;
+      height: 220px;
+    }
   }
 }
