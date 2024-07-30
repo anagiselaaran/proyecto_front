@@ -10,3 +10,7 @@ h1{
 .form-group{
   padding: 10px;
 }
+.error{
+  color: red;
+  padding: 5px;
+}

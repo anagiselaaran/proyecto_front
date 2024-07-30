@@ -40,8 +40,8 @@
     color: white;
     padding: 1rem 1.5rem;
     position: absolute;
-    top: 7rem;
-    left: 60%;
+    top: 2rem;
+    left: 42%;
     border-radius: 0.2rem;
     transform: translateX(-50%);
     width: calc(79% - 2rem);
@@ -58,7 +58,7 @@
     overflow: hidden;
     border-radius: 1rem;
     box-shadow: 0 4px 8px rgba(10, 10, 10, 0.1);
-    margin-top: 11rem;
+    margin-top: 6rem;
     width: 996px;
     padding-top: 3.5rem;
 }

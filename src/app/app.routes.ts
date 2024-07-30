@@ -10,6 +10,7 @@ import { TimerPageComponent } from './pages/timer-page/timer-page.component';
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { ControlHoursComponent } from './pages/control-hours/control-hours.component';
+import { ProjectUsersComponent } from './pages/project-users/project-users.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -24,8 +25,8 @@ export const routes: Routes = [
             { path: 'register', component: RegisterComponent, canActivate: [roleGuardGuard] },
             { path: 'control_hours/:user_id', component: ControlHoursComponent },
             { path: "timer", component: TimerPageComponent },
-            { path: 'proyectos', component: ProyectosComponent, canActivate: [roleGuardGuard] }
-
+            { path: 'proyectos', component: ProyectosComponent, canActivate: [roleGuardGuard] },
+            { path: 'projects/:projectId', component: ProjectUsersComponent }
         ]
     },
 

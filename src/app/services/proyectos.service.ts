@@ -16,9 +16,9 @@ export class ProyectosService {
 
   private httpClient = inject(HttpClient);
 
-  createProyecto(nuevoProyecto: Proyecto): Promise<Proyecto> {
+  createProyecto(body: Proyecto): Promise<Proyecto> {
     return firstValueFrom(
-      this.httpClient.post<Proyecto>(this.baseUrl, nuevoProyecto)
+      this.httpClient.post<Proyecto>(`${this.baseUrl}/new`, body)
     );
   }
 
