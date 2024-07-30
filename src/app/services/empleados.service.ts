@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Empleado, Password, /*UserProjects*/ } from '../interfaces/empleado.interface';
+import { Empleado, Password, UserProjects } from '../interfaces/empleado.interface';
 import { firstValueFrom } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { jwtDecode } from 'jwt-decode';
@@ -13,9 +13,7 @@ type ApiResponse = { success: string; token?: string };
   providedIn: 'root',
 })
 export class EmpleadosService {
-  getProjectsByUserId(): import("../interfaces/empleado.interface").UserProjects[] | PromiseLike<import("../interfaces/empleado.interface").UserProjects[]> {
-    throw new Error('Method not implemented.');
-  }
+ 
   private baseUrl: string = `${environment.apiUrl}/api/users`;
 
   private httpClient = inject(HttpClient);
@@ -33,11 +31,17 @@ export class EmpleadosService {
     );
   }
 
-  /* getProjectsByUserId(): Promise<UserProjects[]> {
+  getUsersByProject(projectId: number): Promise<Empleado[]> {
+    return firstValueFrom(
+      this.httpClient.get<Empleado[]>(this.baseUrl + '/project_user' + '/' + projectId)
+    );
+  }
+
+  getProjectsByUserId(): Promise<UserProjects[]> {
     return firstValueFrom(
       this.httpClient.get<UserProjects[]>(this.baseUrl + '/projects')
     );
-  } */
+  }
 
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(this.httpClient.get<Empleado[]>(this.baseUrl));
