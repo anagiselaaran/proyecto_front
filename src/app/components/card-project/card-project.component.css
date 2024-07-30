@@ -6,7 +6,8 @@
 }
 .card{
     padding: 10px;
-        background-color: #eee;
+        background-color: var(--color-background);
+        border: 5px solid var(--color-secondary);
         margin: 10px;
     
         & h3 {
@@ -14,7 +15,9 @@
         }
 }
 button{
-    border: 1px solid #333;
+    border: 2px solid #333;
+    background-color: var(--color-background);
+    border-radius: 10px;
     width: 200px;
     margin: 0 auto;
 }

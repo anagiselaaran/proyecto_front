@@ -8,22 +8,29 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { TimerPageComponent } from './pages/timer-page/timer-page.component';
 
 import { ProyectosComponent } from './pages/proyectos/proyectos.component';
-import { ProjectUsersComponent } from './pages/project-users/project-users.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { ControlHoursComponent } from './pages/control-hours/control-hours.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/login', pathMatch: 'full' },
     { path: 'login', component: LoginComponent },
-    { path: 'register', component: RegisterComponent },
-    { path: 'admin', component: AdminPageComponent, canActivate: [authGuard, roleGuardGuard] },
+
+
     {
-        path: 'projects/:projectId', component: ProjectUsersComponent /*canActivate: [authGuard, roleGuardGuard] },*/
+        path: 'admin', component: DashboardComponent, canActivate: [authGuard], children: [
+
+            { path: 'profile', component: ProfileComponent },
+            { path: 'panel', component: AdminPageComponent, canActivate: [roleGuardGuard] },
+            { path: 'register', component: RegisterComponent, canActivate: [roleGuardGuard] },
+            { path: 'control_hours/:user_id', component: ControlHoursComponent },
+            { path: "timer", component: TimerPageComponent },
+            { path: 'proyectos', component: ProyectosComponent, canActivate: [roleGuardGuard] }
+
+        ]
     },
+
     { path: '**', redirectTo: '/login' },
-    { path: "timer", component: TimerPageComponent },
-    { path: 'profile/:userId', component: ProfileComponent },
-    { path: 'projects', component: ProyectosComponent },
-    { path: '**', redirectTo: '/login' }
 
 ];
 
-//TODO: agregar guard auth en las rutas q faltan//
+
