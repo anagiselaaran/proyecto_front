@@ -1,0 +1,9 @@
+.content {
+    margin-left: 40px;
+}
+
+@media(min-width: 769px) {
+    .content {
+        margin-left: 18%;
+    }
+}
