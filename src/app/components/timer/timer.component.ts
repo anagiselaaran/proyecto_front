@@ -146,7 +146,6 @@ export class TimerComponent {
 
   endShift() {
     const milliseconds: number = this.elapsed.toMillis();
-
     this.workHours.emit(milliseconds);
   }
 }

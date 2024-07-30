@@ -11,13 +11,22 @@
   --color-primary: #FF8B65;
   --color-secondary: #343A40;
   --color-accent: #F6E27F;
+  --color-accent-secondary: #62929e;
   --color-background: #A8B7AB;
   --color-text: #9BBEC7;
+
+  --color-primary-80: #FF8B6580;
+  --color-secondary-80: #343A4080;
+  --color-accent-80: #F6E27F80;
+  --color-accent-secondary-80: #62929e80;
+  --color-background-80: #A8B7AB80;
+  --color-text-80: #9BBEC780;
 }
 
 body,
 html {
   margin: 0;
+  margin-bottom: 50px;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;

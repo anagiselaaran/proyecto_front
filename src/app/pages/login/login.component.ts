@@ -19,13 +19,13 @@ export class LoginComponent {
   router = inject(Router)
   
 
+  userId: string = ""
 
   formularioLogin: FormGroup = new FormGroup({
     email: new FormControl(null, [
       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)
     ]),
     password: new FormControl(null, []),
-    //borre el validador que no va!
 
   });
 
@@ -40,6 +40,7 @@ export class LoginComponent {
         });
 
         localStorage.setItem('token', response.token!);
+
         this.router.navigateByUrl('/usuarios/registro');
 
         this.formularioLogin.reset();
@@ -54,6 +55,7 @@ export class LoginComponent {
     } else {
       Object.values(this.formularioLogin.controls).forEach(control => {
         control.markAsTouched();
+
       });
     }
 

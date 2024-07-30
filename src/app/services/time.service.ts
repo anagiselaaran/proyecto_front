@@ -40,7 +40,11 @@ export class TimeService {
     );
   }
 
-  getByUserIdAndPeriod(userId: number, start: string, end: string): Promise<Time[]> {
+  getByUserIdAndPeriod(
+    userId: number,
+    start: string,
+    end: string
+  ): Promise<Time[]> {
     return firstValueFrom(
       this.httpClient.get<Time[]>(
         `${this.baseUrl}/user/${userId}/start/${start}/end/${end}`
@@ -48,8 +52,16 @@ export class TimeService {
     );
   }
 
-  create(body: any): Promise<Time> {
-    return firstValueFrom(this.httpClient.post<Time>(this.baseUrl, body));
+  createTime(body: any): Promise<Time> {
+    return firstValueFrom(
+      this.httpClient.post<Time>(`${this.baseUrl}/new`, body)
+    );
+  }
+
+  createProjectTime(body: any): Promise<Time> {
+    return firstValueFrom(
+      this.httpClient.post<Time>(`${this.baseUrl}/project/new`, body)
+    );
   }
 
   updateByUserIdAndDate(userId: number, body: any): Promise<Time> {
