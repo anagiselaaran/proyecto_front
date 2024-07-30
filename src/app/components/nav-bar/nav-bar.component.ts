@@ -35,12 +35,9 @@ export class NavBarComponent {
     }
   
   cargarUser() {
-    const token = localStorage.getItem('token')
-    if (!token) {
-      throw new Error('No hay token')
-    }
+    
 
-    const usTok = jwtDecode<CustomPayload>(token)
+    const usTok = this.empleadosService.getTokenData()
     this.userId = usTok.userId
     console.log(this.userId);
     this.userRole = usTok.role

@@ -52,21 +52,21 @@ export class EmpleadosService {
     )
   }
 
-  updatePassword(userId: number, body: Password): Promise<any> {
+  /* updatePassword(userId: number, body: Password): Promise<any> {
     console.log(body)
     return firstValueFrom(
       this.httpClient.get<Empleado[]>(this.baseUrl + '/project_user' + '/' + projectId)
     );
-  }
+  } */
 
 
   //* Removed userId as parameter
-/*   updatePassword(body: Password): Promise<any> {
+  updatePassword(body: Password): Promise<any> {
     console.log(body);
     return firstValueFrom(
       this.httpClient.put<any>(this.baseUrl + '/profile/edit', body)
     );
-  } */
+  }
 
   getTokenData() {
     const token = localStorage.getItem('token');

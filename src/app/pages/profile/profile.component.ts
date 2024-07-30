@@ -40,12 +40,7 @@ export class ProfileComponent {
   
   async ngOnInit() {
     try {
-      const token = localStorage.getItem('token')
-      if (!token) {
-        throw new Error('No hay token')
-      }
-
-      const elTok = jwtDecode<CustomPayload>(token)
+      const elTok = this.empleadosService.getTokenData()
       const userId = elTok.userId
         this.empleado = await this.empleadosService.getById(userId)// Obtiene los datos del empleado por su ID.
         this.userId = this.empleado.id
