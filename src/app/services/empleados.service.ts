@@ -30,11 +30,11 @@ export class EmpleadosService {
     );
   }
 
-  /*getProjectsByUserId(): Promise<UserProjects[]> {
+  /* getProjectsByUserId(): Promise<UserProjects[]> {
     return firstValueFrom(
       this.httpClient.get<UserProjects[]>(this.baseUrl + '/projects')
     );
-  }*/
+  } */
 
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(this.httpClient.get<Empleado[]>(this.baseUrl));
