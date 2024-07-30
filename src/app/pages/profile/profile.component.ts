@@ -4,6 +4,7 @@ import { Empleado } from '../../interfaces/empleado.interface';
 import { EmpleadosService } from '../../services/empleados.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
+import { UserProjectsComponent } from '../../components/user-projects/user-projects.component';
 
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 import { DatePipe, TitleCasePipe } from '@angular/common';
@@ -18,7 +19,7 @@ interface CustomPayload extends JwtPayload {
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [ReactiveFormsModule,TitleCasePipe,DptoTransformPipe,DatePipe],
+  imports: [ReactiveFormsModule, UserProjectsComponent,TitleCasePipe,DptoTransformPipe,DatePipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

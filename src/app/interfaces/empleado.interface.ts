@@ -22,7 +22,8 @@ export interface UserProjects {
     name: string;
     project_work_hours?: number;
     date: Date;
-    //TODO: Added department and is_active
+    limit_date?: string;
+    hours_by_project?: number;
     department: string;
     is_active: boolean;
 }

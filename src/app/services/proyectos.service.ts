@@ -8,6 +8,10 @@ import { environment } from '../../environments/environment.development';
   providedIn: 'root',
 })
 export class ProyectosService {
+ 
+
+  constructor() { }
+
   private baseUrl = `${environment.apiUrl}/api/projects`;
 
   private httpClient = inject(HttpClient);

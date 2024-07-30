@@ -1,1 +1,35 @@
-<p>user-projects works!</p>
+<div class="container">
+    <h2>Proyectos del Usuario</h2>
+    <ul>
+        @if (arrProyectos) {
+        @for (proyecto of arrProyectos; track $index) {
+        <li class="card col-12 col-md-6 mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Proyecto: {{ proyecto.name }}</h5>
+                <p class="card-text"> ID: {{ proyecto.id }}</p>
+                <p class="card-text">Fecha limite: {{ proyecto.limit_date | date:'dd-MM-yyyy'}}</p>
+            @if (proyecto.is_active) {
+                <p class="card-text">Estado: Activo</p>
+            }
+            @else {
+                <p class="card-text">Estado: Inactivo</p>
+            }
+            @if(horasProyecto===0){
+                 <p class="card-text">Horas dedicadas: {{ proyecto.hours_by_project }} horas</p>
+            }@else {
+                <p class="card-text">Horas dedicadas: {{ horasProyecto }} horas</p>
+            }
+                <p class="card-text">Fecha: {{ proyecto.date | date:'dd-MM-yyyy' }}</p>
+            
+                <div>
+                    <form [formGroup]="formHoras" (ngSubmit)="onSubmit()" >
+                <input class="rounded" type="number" placeholder="Horas a asignar" formControlName="hours">
+                <button class="btn btn-primary mx-3">Asignar Horas</button>
+            </form>
+            </div>
+            </div>
+        </li>
+        }
+    }
+    </ul>
+</div> 
