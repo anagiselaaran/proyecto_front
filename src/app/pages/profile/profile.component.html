@@ -8,12 +8,12 @@
       
         @if (empleado) {
         <div class="card ">
-          <h3 class="text-center title">{{ empleado.name }} {{ empleado.surname }}</h3>
+          <h3 class="text-center title">{{ empleado.name | titlecase}} {{ empleado.surname | titlecase}}</h3>
           <h4>ID: {{empleado.id}}</h4>
           <h4>Email: {{empleado.email}}</h4>
-          <h4>Departamento: {{empleado.department}}</h4>
-          <h5>Fecha de alta: {{ empleado.created_at }}</h5>
-          <h5>Role: {{ empleado.role }}</h5>
+          <h4>Departamento: {{empleado.department | dptoTransform}}</h4>
+          <h5>Fecha de alta: {{ empleado.created_at | date:'dd-MM-YYYY'}}</h5>
+          <h5>Role: {{ empleado.role|titlecase}}</h5>
           @if ( empleado.is_active ) {
           <h5> Estado: <span class="active">Activo</span> </h5>
           }@else {
@@ -25,16 +25,16 @@
       </div>
       
       <div>
-        <h1>Modificar contraseña</h1>
+        <h2>Modificar contraseña</h2>
       </div>
       
       @if (empleado) {
       <div class="card">
-        <h3 class="text-center">{{ empleado.name }} {{ empleado.surname }}</h3>
+        <h3 class="text-center">{{ empleado.name | titlecase}} {{ empleado.surname | titlecase}}</h3>
       
         <form [formGroup]="newForm" class="form-control" (ngSubmit)="onSubmit()">
       
-          <div class="form-group caja">
+          <div class="form-group">
             <label>Contraseña actual</label>
             <input type="password" class="form-control bg-body-tertiary" formControlName="oldPassword">
           </div>

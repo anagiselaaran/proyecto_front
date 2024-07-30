@@ -26,7 +26,8 @@ export class NavBarComponent {
   empleadosService = inject(EmpleadosService)
   activatedRoute = inject(ActivatedRoute)
   user!:Empleado
-  userId!:number
+  userId!: number
+  userRole!:string
 
  
   constructor() {
@@ -42,12 +43,11 @@ export class NavBarComponent {
     const usTok = jwtDecode<CustomPayload>(token)
     this.userId = usTok.userId
     console.log(this.userId);
-    
+    this.userRole = usTok.role
+    console.log('su role', this.userRole);
+
     
   }
-
-
-  
 
   async onClickLogout() {
     const result = await Swal.fire({

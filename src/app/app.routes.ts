@@ -19,7 +19,7 @@ export const routes: Routes = [
         
             { path: 'profile', component: ProfileComponent },
             { path: 'panel', component: AdminPageComponent, canActivate: [roleGuardGuard] },
-            { path: 'register', component: RegisterComponent, canActivate: [roleGuardGuard]},
+            { path: 'register', component: RegisterComponent, canActivate: [roleGuardGuard] },
             { path: 'control_hours/:user_id', component: ControlHoursComponent },
             { path: "timer", component: TimerPageComponent },
             { path: 'proyectos', component: ProyectosComponent, canActivate: [roleGuardGuard] }

@@ -2,19 +2,17 @@
 .datos-top{
     border: 1px solid var(--dark-grey);
     margin-top: 100px;
-    box-shadow: 10px 10px  var(--dark-skyblue);
+    box-shadow: 10px 10px var(--color-background);
     height: 50vh;
-}
-.datos-user{
-    display: grid;
 }
 figure svg{
     background-color: #ccc;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: auto;
+    display: block;
     margin-top: 50px;
     border-radius: 50%;
-    padding: 20px;
+    padding: 10px;
 }
 h3{
     padding:5px;

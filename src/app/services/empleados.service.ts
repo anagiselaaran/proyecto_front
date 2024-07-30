@@ -38,6 +38,12 @@ export class EmpleadosService {
     );
   }
 
+  getByName(name: string): Promise<Empleado[]>{
+    return firstValueFrom(
+      this.httpClient.get<Empleado[]>(this.baseUrl + '/name/' + name)
+    )
+  }
+
   updatePassword(userId: number, body: Password): Promise<any> {
     console.log(body)
     return firstValueFrom(

@@ -6,6 +6,8 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 
 import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { DatePipe, TitleCasePipe } from '@angular/common';
+import { DptoTransformPipe } from '../../pipes/dpto-transform.pipe';
 
 interface CustomPayload extends JwtPayload {
   userId: number,
@@ -16,7 +18,7 @@ interface CustomPayload extends JwtPayload {
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,TitleCasePipe,DptoTransformPipe,DatePipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })

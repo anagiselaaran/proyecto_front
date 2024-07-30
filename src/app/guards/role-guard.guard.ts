@@ -1,5 +1,6 @@
 
-import { CanActivateFn} from '@angular/router';
+import { inject } from '@angular/core';
+import { CanActivateFn, Router} from '@angular/router';
 import { JwtPayload, jwtDecode} from 'jwt-decode'
 import Swal from 'sweetalert2';
 
@@ -9,17 +10,18 @@ interface CustomPayload extends JwtPayload{
   role: string,
   iat:number
 }
-export const roleGuardGuard: CanActivateFn = (route, state) => {
+export const roleGuardGuard: CanActivateFn = async (route, state) => {
   
   const token = localStorage.getItem('token') || "";
   const decoded = jwtDecode<CustomPayload>(token);
-  console.log(decoded);
+  const router = inject(Router)
   
 
   if (decoded.role === 'admin') {
     return true
   } else {
-    Swal.fire('Zona restringida', 'Solo los administradores pueden realizar modificaciones', 'warning');
+    await Swal.fire('Zona restringida', 'Solo los administradores pueden realizar modificaciones', 'warning');
+    router.navigate(['/admin','profile'])
     return false
     //TODO: tendria q agregar el router a la pagina del admin?
   }
