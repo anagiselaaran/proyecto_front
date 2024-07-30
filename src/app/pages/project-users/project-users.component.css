@@ -1,0 +1,97 @@
+.table {
+    border-collapse: separate;
+    border-spacing: 30px;
+    width: 90%;
+    padding-left: 55px;
+}
+
+
+.employee-row:hover {
+    background-color: #f2f2f2;
+}
+
+.employee-row.selected {
+    background-color: #e0e0e0;
+}
+
+/* Estilos para el título de la tabla */
+.table-title {
+    margin-left: 85px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.table tbody tr {
+    background-color: #e3f2fd;
+    border: 1px solid #dddddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #0288d1;
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.badge {
+    padding: 0.5em 1em;
+    border-radius: 12px;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+.badge-success {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.badge-danger {
+    background-color: #dc3545;
+    color: #ffffff;
+}
+
+.table-wrapper {
+    border: 1px solid #dddddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-top: 50px;
+    margin-top: 100px;
+}
+
+.avatar-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.main-container {
+    background-color: #f0f8ff;
+    padding: 20px;
+}
+
+.table-wrapper {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-title h2 {
+    margin-bottom: 20px;
+}
+
+.avatar-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.employee-row:hover {
+    background-color: #d1ecf1 !important;
+    /* Hover azul claro */
+}

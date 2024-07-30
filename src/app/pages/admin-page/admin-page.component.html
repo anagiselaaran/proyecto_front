@@ -1,43 +1,40 @@
 
-    <main>
+    <main class="col-7">
         <h1 class="text-center">Bienvenido Admin</h1>
         <div class="top_trabajadores">
-            <h3 class="text-center">Trabajadores</h3>
+            <h3 class="text-center">Empleados</h3>
+            <div>
+                <label class="form-label">Buscar Empleado</label>
+                <input type="text" class="form-control" (input)="onChange($event)">
+            </div>
             <div class="trabajadores">
-                @for (trabajador  of arrTrabajadores; track trabajador.id) {
-                    <card-trabajadores [trabajador]="trabajador"></card-trabajadores>
-                }
+
+                    @for (trabajador  of arrTrabajadores; track trabajador.id) {
+                        <card-trabajadores [trabajador]="trabajador"></card-trabajadores>
+                    }@empty {
+                        <p class="mt-3">No hay empleados con ese nombre!</p>
+                    }
+                
             </div>
         </div>
         <div>
-           <div>
+           <div class="mt-3">
             <select class="form-select" (change)="onSelect($event)">
-                <option value="elige">Elige Departamento</option>
-                <option value="human-resourses">Recursos Humanos</option>
+                <option value="elige">Elige departamento</option>
+                <option value="human-resources">Recursos Humanos</option>
                 <option value="administration">Administración</option>
                 <option value="marketing">Marketing</option>
                 <option value="development">Desarrollo</option>
             </select>
            </div>
-          
-           @if (arrProjects.length === 0 && selectorP !== 'elige') {
-            <h4>No hay proyectos para ese departamento</h4>
-           }@else {
+
                <div>
-                @for (item of arrProjects; track item.id) {
-                    <card-project [project]="item"></card-project>
-                }
+                   @for (item of arrProjects; track item.id) {
+                   <card-project [project]="item"></card-project>
+                   }@empty {
+                    <p>No hay proyectos en ese Departamento!</p>
+                   }
                </div>
-
-           }
-
-           
-           <!--  <div class="top_project">
-                <h3 class="text-center">Proyectos</h3> 
-                @for (project of arrProjects; track project.id) {
-                    <card-project [project]="project"></card-project>
-                }
-            </div> -->
         </div>
     
     </main>

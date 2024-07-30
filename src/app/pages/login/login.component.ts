@@ -4,16 +4,21 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
+
+
 @Component({
   selector: 'login',
   standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
+
 })
 export class LoginComponent {
+
   empleadosService = inject(EmpleadosService);
   router = inject(Router)
+  
 
   userId: string = ""
 
@@ -22,7 +27,6 @@ export class LoginComponent {
       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)
     ]),
     password: new FormControl(null, []),
-    //borre el validador que no va!
 
   });
 
@@ -52,11 +56,14 @@ export class LoginComponent {
     } else {
       Object.values(this.formularioLogin.controls).forEach(control => {
         control.markAsTouched();
+
       });
     }
 
-    this.router.navigateByUrl(`/timer`);
+    this.router.navigate(['/admin','profile']);
   }
+
+
 
   checkError(controlName: string, errorName: string) {
     return this.formularioLogin.get(controlName)?.hasError(errorName) && this.formularioLogin.get(controlName)?.touched;

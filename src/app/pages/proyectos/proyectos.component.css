@@ -1,9 +1,12 @@
 /* proyectos.component.css */
 
-.bg-lightblue {
-  background-color: lightblue;
+.bg{
+  background-color: var(--color-background);
 }
 
-.vh-100 {
-  height: 100vh;
+h1{
+  border-bottom:1px solid var(--dark-skyblue);
+}
+.form-group{
+  padding: 10px;
 }

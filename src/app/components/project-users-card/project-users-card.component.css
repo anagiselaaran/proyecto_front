@@ -1,0 +1,56 @@
+.table-responsive {
+    margin: 30px 0;
+}
+
+.table-wrapper {
+    min-width: 1000px;
+    background-color: #f21d1d;
+    padding: 20px 20px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.table-title {
+    padding-bottom: 15px;
+    background-color: #299be4;
+    color: #fff;
+    padding: 16px 30px;
+    margin: -20px -25px 10px;
+    border-radius: 3px 3px 0 0;
+}
+
+.table-title h2 {
+    margin: 5px 0 0;
+    font-size: 24px;
+}
+
+.empleado-detalle {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.detail-item {
+    flex: 1 1 calc(15% - 50px);
+    box-sizing: border-box;
+    background: #fff;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    margin-bottom: 10px;
+
+    .status {
+        font-size: 30px;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+
+    .text-success {
+        color: #10c469;
+    }
+
+    .text-danger {
+        color: #ff5b5b;
+    }
+
+}

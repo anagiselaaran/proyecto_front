@@ -1,52 +1,45 @@
-.container{
+
+.datos-top{
     border: 1px solid var(--dark-grey);
     margin-top: 100px;
-    box-shadow: 10px 10px  var(--dark-skyblue);
+    box-shadow: 10px 10px var(--color-background);
     height: 50vh;
-}
-.datos-user{
-    display: grid;
 }
 figure svg{
     background-color: #ccc;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: auto;
+    display: block;
     margin-top: 50px;
     border-radius: 50%;
-    padding: 20px;
+    padding: 10px;
 }
 h3{
     padding:5px;
     border-bottom: 1px solid var(--dark-grey)
 }
 .search{
-    width: 1000px;
-    display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    padding: 40px 0;
 
-    & input[type=submit]{
-        background-color: var(--dark-grey);
-        color: white;
-        padding: 0px 40px;
-        border-radius: 10px;
-    }
+    & input[type=submit] {
+            display: block;
+            background-color: var(--dark-grey);
+            color: white;
+            padding: 0px 40px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+}   
 
-    & div{
-        display: flex;
-        & label{
-            padding: 10px;
-            /* //TODO: saco estilos label? */
-    }
-}
-}
-.table_hours{
-    overflow-y: scroll;
-    margin: 100px auto;
-}
 i.inactive{
     color: red;
 }
 i.active {
     color: green;
+}
+
+.hours{
+    height: 400px;
+    margin-bottom: 100px;
+    overflow-y: scroll;
 }

@@ -1,122 +1,228 @@
-  .custom-container {
-      background-color: #ffffff;
-      padding-top: 40px;
-      padding-bottom: 80px;
-  }
+/* Tamaño de fuente raíz recomendado: 16px (esto es el valor predeterminado del navegador) */
+:root {
+    font-size: 16px;
+    /* Esto puede ser ajustado según tus necesidades */
+}
 
-  .custom-form {
-      background-color: #ffffff;
-      border-radius: 10px;
-      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
-      padding: 30px;
-  }
+/* Estilos generales */
+.custom-container {
+    background-color: #ffffff;
+    padding-top: 2.5rem;
+    /* 40px */
+    padding-bottom: 5rem;
+    /* 80px */
+    height: 90%;
+}
 
-  .form-label {
-      font-weight: bold;
-  }
+.custom-form {
+    background-color: #ffffff;
+    border-radius: 0.625rem;
+    /* 10px */
+    box-shadow: 0px 0px 1.25rem rgba(0, 0, 0, 0.1);
+    /* 20px */
+    padding: 1.875rem;
+    /* 30px */
+}
 
-  .form-control {
-      border-color: #ced4da;
-  }
+.form-label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-color: #ced4da;
+}
+
+.message {
+    font-size: 1rem;
+    /* 16px */
+    margin-top: 1.25rem;
+    /* 20px */
+}
+
+.message.success {
+    color: #28a745;
+}
+
+.message.error {
+    color: #dc3545;
+}
+
+.card {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2);
+    /* 4px 8px */
+    width: 75rem;
+    /* 1200px */
+    margin: -7.0625rem;
+    /* -113px */
+}
+
+.img-fluid {
+    width: 94%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 1.25rem;
+    /* 20px */
+    transform: scale(1.1);
+    transform-origin: top;
+}
+
+.card-body {
+    background-color: #ffffff;
+}
+
+.form-outline {
+    position: relative;
+    margin-top: 1.5rem;
+    padding: 0.25rem;
+    /* 4px */
+}
+
+.form-control-lg {
+    font-size: 1rem;
+    /* 16px */
+    padding: 1rem;
+    /* 16px */
+    border-radius: 0.5rem;
+    /* 8px */
+}
+
+.form-label {
+    position: absolute;
+    top: -2.25rem;
+    /* -36px */
+    left: 0;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    /* 14.4px */
+    color: #6c757d;
+}
+
+.btn-lg {
+    font-size: 1.125rem;
+    /* 18px */
+    padding: 1rem;
+    /* 16px */
+    border-radius: 0.5rem;
+    /* 8px */
+    width: 100%;
+}
+
+.btn-dark {
+    background-color: #343a40;
+    border: none;
+}
+
+.btn-dark:hover {
+    background-color: #23272b;
+}
+
+.form-check {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    /* 16px */
+}
+
+.form-check-input {
+    margin-right: 0.5rem;
+    /* 8px */
+    padding-left: 1rem;
+    /* 16px */
+}
+
+.form-check-label {
+    margin: 0;
+}
+
+.text-muted {
+    color: #6c757d;
+    text-decoration: none;
+}
+
+.text-muted:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 75rem) {
+
+    .card {
+        width: 100%;
+
+        margin: 0;
+    }
+}
+
+@media (max-width: 62rem) {
+
+    .custom-container {
+        padding-top: 1.25rem;
+
+        padding-bottom: 2.5rem;
+    }
+
+    .custom-form {
+        padding: 1.25rem;
+
+    }
+
+    .form-control-lg {
+        font-size: 0.875rem;
+
+        padding: 0.75rem;
+    }
+
+    .btn-lg {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+}
+
+@media (max-width: 48rem) {
+
+    .custom-container {
+        padding-top: 0.625rem;
+        padding-bottom: 1.25rem;
+    }
+
+    .custom-form {
+        padding: 0.9375rem;
+
+    }
+
+    .card {
+        width: 100%;
+
+        margin: 0;
+    }
+
+    .form-control-lg {
+        font-size: 0.75rem;
+        padding: 0.5rem;
+    }
+
+    .btn-lg {
+        font-size: 0.875rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 36rem) {
 
 
-  .message {
-      font-size: 16px;
-      margin-top: 20px;
-  }
+    .message {
+        font-size: 0.875rem;
 
-  .message.success {
-      color: #28a745;
-  }
+    }
 
-  .message.error {
-      color: #dc3545;
-  }
+    .form-label {
+        font-size: 0.8rem;
 
-  .card {
-      border-radius: 1rem;
-      overflow: hidden;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      width: 1190px;
-      margin: -85px;
-  }
+    }
 
-  .img-fluid {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 1rem 0 0 1rem;
-      align-items: center;
-      align-content: center;
-  }
+    .form-outline {
+        margin-top: 1rem;
 
-  .card-body {
-      background-color: #ffffff;
-
-  }
-
-  .form-outline {
-      position: relative;
-      margin-top: 1.5rem;
-      padding: 4px;
-
-  }
-
-  .form-control-lg {
-      font-size: 1rem;
-      padding: 1rem;
-      border-radius: 0.5rem;
-  }
-
-  .form-label {
-      position: absolute;
-      top: -36px;
-      left: 0;
-      padding: 0.75rem;
-      font-size: 0.9rem;
-      color: #6c757d;
-  }
-
-
-
-
-  .btn-lg {
-      font-size: 1.125rem;
-      padding: 1rem;
-      border-radius: 0.5rem;
-      width: 100%;
-  }
-
-  .btn-dark {
-      background-color: #343a40;
-      border: none;
-  }
-
-  .btn-dark:hover {
-      background-color: #23272b;
-  }
-
-  .form-check {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-  }
-
-  .form-check-input {
-      margin-right: 0.5rem;
-      padding-left: 1rem;
-  }
-
-  .form-check-label {
-      margin: 0;
-  }
-
-
-  .text-muted {
-      color: #6c757d;
-      text-decoration: none;
-  }
-
-  .text-muted:hover {
-      text-decoration: underline;
-  }
+    }
+}

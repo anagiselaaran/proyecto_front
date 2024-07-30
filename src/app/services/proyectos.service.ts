@@ -30,8 +30,8 @@ export class ProyectosService {
 
   getByDepartment(dep: string): Promise<Proyecto[]> {
     return firstValueFrom(
-      this.httpClient.get<Proyecto[]>(`${this.baseUrl}/department/${dep}`)
-    );
+      this.httpClient.get<Proyecto[]>(`${this.baseUrl}/department/` + dep)
+    )
   }
 
   // TIMER PAGE FILTERS

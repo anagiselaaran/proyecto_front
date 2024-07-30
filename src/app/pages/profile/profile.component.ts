@@ -5,10 +5,20 @@ import { EmpleadosService } from '../../services/empleados.service';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 
+import { jwtDecode, JwtPayload } from 'jwt-decode';
+import { DatePipe, TitleCasePipe } from '@angular/common';
+import { DptoTransformPipe } from '../../pipes/dpto-transform.pipe';
+
+interface CustomPayload extends JwtPayload {
+  userId: number,
+  role: string,
+  iat: number
+}
+
 @Component({
   selector: 'app-profile',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule,TitleCasePipe,DptoTransformPipe,DatePipe],
   templateUrl: './profile.component.html',
   styleUrl: './profile.component.css'
 })
@@ -21,23 +31,24 @@ export class ProfileComponent {
   errorMessages: string[] = [];
   userId: string = "";
 
+  
   newForm: FormGroup = new FormGroup({
     oldPassword: new FormControl(),
     newPassword: new FormControl(),
     newRepPassword: new FormControl(),
   })
-
-  ngOnInit() {
-    // TODO: Change after changing route on BACK
-    this.activatedRoute.params.subscribe(async params => {// Suscripción a los parámetros de la ruta
-      try {
-
-        this.empleado = await this.empleadosService.getById(Number(params['userId']))// Obtiene los datos del empleado por su ID.
+  
+  async ngOnInit() {
+    try {
+      const elTok = this.empleadosService.getTokenData()
+      const userId = elTok.userId
+        this.empleado = await this.empleadosService.getById(userId)// Obtiene los datos del empleado por su ID.
         this.userId = this.empleado.id
+        
       } catch (error:any) {
         this.errorMessage = error.message;
       }
-    })
+   
   }
 
   async onSubmit() {
@@ -56,7 +67,7 @@ export class ProfileComponent {
    try {
       console.log(this.newForm.value)
       //* Removed userId as parameter from updatePassword method
-     const response = await this.empleadosService.updatePassword(this.newForm.value);
+     const response = await this.empleadosService.updatePassword(this.newForm.value,);
       this.newForm.reset();
       Swal.fire({
         title: 'Success',
