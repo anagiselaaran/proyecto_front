@@ -1,32 +1,26 @@
-<div class="container">
-    <h2>Proyectos del Usuario</h2>
-    <ul>
+
+
+<div class="box container p-1 rounded col-md-8 ">
+    <h2 class="container justify-content-center p-3 d-flex">Mis proyectos</h2>
+    <hr class="mb-5">
+    <ul class="container mb-5">
         @if (arrProyectos) {
         @for (proyecto of arrProyectos; track $index) {
-        <li class="card col-12 col-md-6 mb-3">
+        <li class="card col-12 col-md-6 mb-3 container ">
             <div class="card-body">
                 <h5 class="card-title">Proyecto: {{ proyecto.name }}</h5>
+                <hr>
                 <p class="card-text"> ID: {{ proyecto.id }}</p>
                 <p class="card-text">Fecha limite: {{ proyecto.limit_date | date:'dd-MM-yyyy'}}</p>
-            @if (proyecto.is_active) {
-                <p class="card-text">Estado: Activo</p>
+                <p class="card-text">Fecha Creación: {{ proyecto.date | date:'dd-MM-yyyy' }}</p>
+                <p class="card-text">Horas dedicadas: {{ proyecto.hours_by_project }} horas</p>
+              @if (proyecto.is_active) {
+                <p class="card-text text-success">Estado: Activo</p>
             }
             @else {
-                <p class="card-text">Estado: Inactivo</p>
+                <p class="card-text text-bg-danger">Estado: Inactivo</p>
             }
-            @if(horasProyecto===0){
-                 <p class="card-text">Horas dedicadas: {{ proyecto.hours_by_project }} horas</p>
-            }@else {
-                <p class="card-text">Horas dedicadas: {{ horasProyecto }} horas</p>
-            }
-                <p class="card-text">Fecha: {{ proyecto.date | date:'dd-MM-yyyy' }}</p>
-            
-                <div>
-                    <form [formGroup]="formHoras" (ngSubmit)="onSubmit()" >
-                <input class="rounded" type="number" placeholder="Horas a asignar" formControlName="hours">
-                <button class="btn btn-primary mx-3">Asignar Horas</button>
-            </form>
-            </div>
+           
             </div>
         </li>
         }

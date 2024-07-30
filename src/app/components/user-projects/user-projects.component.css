@@ -1,0 +1,12 @@
+.card{
+    background-color: #6590C2;
+            box-shadow: 4px 8px 10px black;
+}
+.box{
+    background-color: #b7bdc4;
+            box-shadow: 2px 6px 40px black;
+}
+h2{
+    text-shadow: 2px 2px 20px black;
+    
+}

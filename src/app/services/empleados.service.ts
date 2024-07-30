@@ -6,7 +6,6 @@ import { jwtDecode } from 'jwt-decode';
 import { CustomPayload } from '../interfaces/jwtPayload.interface';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Proyecto } from '../interfaces/proyecto.interface';
-
 type LoginBody = { email: string; password: string };
 type ApiResponse = { success: string; token?: string };
 
@@ -48,8 +47,12 @@ export class EmpleadosService {
       this.httpClient.get<UserProjects[]>(`${this.baseUrl}/projects`)
     )
   }
-/*   asignarHorasAProyecto(userId: number, projectId: number, horas: number) {
-  } */
+//revisar
+  getWeeklyHours(body:any): Promise<any>{
+    return firstValueFrom(
+      this.httpClient.post<any>(`${this.baseUrl}/weeklyHours`, body)
+      )
+  }
 
   getAll(): Promise<Empleado[]> {
     return firstValueFrom(this.httpClient.get<Empleado[]>(this.baseUrl));
@@ -94,6 +97,7 @@ export class EmpleadosService {
     }
     return jwtDecode<CustomPayload>(token);
   }
+ 
 }
 export { CustomPayload };
 
