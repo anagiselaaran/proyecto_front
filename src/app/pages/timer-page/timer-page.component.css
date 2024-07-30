@@ -1,62 +1,92 @@
 .label-btn {
-  color: black;
+  color: var(--color-secondary);
+  background-color: #00000025;
+  box-shadow: 0 0 0px 1px var(--color-secondary);
+  margin-bottom: 5px;
 }
 
 .development {
-  background-color: var(--color-primary-80);
+  border-width: 0 15px;
+  border-left-color: var(--color-primary);
+  border-right-color: var(--color-primary);
 
   &:hover {
-    background-color: var(--color-primary);
+    border-width: 0 15px;
+    border-left-color: var(--color-primary-strong);
+    border-right-color: var(--color-primary-strong);
   }
 }
 .human-resources {
-  background-color: var(--color-background-80);
+  border-width: 0 15px;
+  border-left-color: var(--color-background);
+  border-right-color: var(--color-background);
 
   &:hover {
-    background-color: var(--color-background);
+    border-width: 0 15px;
+    border-left-color: var(--color-background-strong);
+    border-right-color: var(--color-background-strong);
   }
 }
 .marketing {
-  background-color: var(--color-accent-80);
+  border-width: 0 15px;
+  border-left-color: var(--color-accent-strong);
+  border-right-color: var(--color-accent-strong);
 
   &:hover {
-    background-color: var(--color-accent);
+    border-width: 0 15px;
+    border-left-color: var(--color-accent);
+    border-right-color: var(--color-accent);
   }
 }
 .administration {
-  background-color: var(--color-text-80);
+  border-width: 0 15px;
+  border-left-color: var(--color-text);
+  border-right-color: var(--color-text);
 
   &:hover {
-    background-color: var(--color-text);
+    border-width: 0 15px;
+    border-left-color: var(--color-text-strong);
+    border-right-color: var(--color-text-strong);
   }
 }
 
-.project-list .btn-check + label:hover {
-  width: 106%;
+select.form-select-sm {
+  border: none;
+  background-color: #00000025;
+  color: var(--color-secondary);
 }
 
-.dpt {
-  font-weight: 600;
+.project-list .btn-check + label:hover {
+  /* width: 103%; */
+  transform: scaleX(1.025);
+  transition: 0.3s ease-in-out;
 }
 
 .project-list .btn-check:checked {
   & + label {
-    border-width: 2px;
+    transform: scaleX(1.025);
+    /* border-width: 15px; */
+    box-shadow: 0 0 0px 2px var(--color-secondary);
     font-size: 1.1rem;
     font-weight: 600;
-    color: black;
+    color: #343434;
+    background-color: #00000025;
   }
   & + .development {
-    background-color: var(--color-primary);
+    border-left-color: var(--color-primary-strong);
+    border-right-color: var(--color-primary-strong);
   }
   & + .human-resources {
-    background-color: var(--color-background);
+    border-left-color: var(--color-background-strong);
+    border-right-color: var(--color-background-strong);
   }
   & + .marketing {
-    background-color: var(--color-accent);
+    border-left-color: var(--color-accent);
+    border-right-color: var(--color-accent);
   }
   & + .administration {
-    background-color: var(--color-text);
+    border-left-color: var(--color-text-strong);
+    border-right-color: var(--color-text-strong);
   }
   & + label p {
     font-size: 0.8rem;
@@ -68,22 +98,23 @@
   opacity: 0.4;
 }
 
-div.container h3 {
-  color: white;
-  font-weight: 500;
-  text-transform: uppercase;
-}
-div.divider {
-  border-bottom: #e6e6e6 3px solid;
-  margin-bottom: 35px;
+div.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & h3 {
+    margin: 0;
+    color: var(--color-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
 }
 
 div.projects {
-  border: var(--dark-grey) 3px solid;
+  /* border: var(--color-secondary) 3px solid; */
   border-radius: 15px;
-  background: linear-gradient(var(--color-text), var(--color-background));
-  background-color: #00000080;
-  background-blend-mode: multiply;
+  background-color: #0000002c;
 
   /* overflow-y: scroll; */
 }
@@ -94,8 +125,8 @@ div.projects {
   align-items: center;
 
   & .btn-outline-info {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
+    border-color: var(--color-primary-strong);
+    color: var(--color-primary-strong);
   }
 
   & input.btn-check:checked + .btn-outline-info {
@@ -105,7 +136,7 @@ div.projects {
 }
 
 .msg {
-  color: white;
+  color: var(--color-secondary);
   font-weight: 600;
   font-size: 1.2rem;
 }

@@ -63,7 +63,7 @@ export class TimeService {
       this.httpClient.post<Time>(`${this.baseUrl}/project/new`, body)
     );
   }
-
+  
   updateByUserIdAndDate(userId: number, body: any): Promise<Time> {
     return firstValueFrom(
       this.httpClient.put<Time>(`${this.baseUrl}/user/${userId}`, body)

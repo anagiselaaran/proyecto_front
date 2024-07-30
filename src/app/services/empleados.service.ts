@@ -44,9 +44,7 @@ export class EmpleadosService {
     );
   }
 
-  //* Removed userId as parameter
   updatePassword(body: Password): Promise<any> {
-    console.log(body);
     return firstValueFrom(
       this.httpClient.put<any>(this.baseUrl + '/profile/edit', body)
     );

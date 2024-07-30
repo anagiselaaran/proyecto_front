@@ -6,3 +6,11 @@ export interface Proyecto {
     created_at?: Date;
     is_active: boolean;
 }
+
+export interface ProjectTime {
+    id: number;
+    id_user: number;
+    id_project: number;
+    hours_by_project: number;
+    date: Date;
+}

@@ -2,16 +2,15 @@ import { Component, inject } from '@angular/core';
 import { TimerComponent } from '../../components/timer/timer.component';
 import { ClockComponent } from '../../components/clock/clock.component';
 import { ActivatedRoute } from '@angular/router';
-import {
-  CustomPayload,
-  EmpleadosService,
-} from '../../services/empleados.service';
+import { EmpleadosService } from '../../services/empleados.service';
 import { UserProjects } from '../../interfaces/empleado.interface';
 import { DptoTransformPipe } from '../../pipes/dpto-transform.pipe';
 import { TimeService } from '../../services/time.service';
 import { DateTime } from 'luxon';
-import Swal from 'sweetalert2';
 import { FormsModule } from '@angular/forms';
+import { CustomPayload } from '../../interfaces/jwtPayload.interface';
+import Swal from 'sweetalert2';
+import { ProyectosService } from '../../services/proyectos.service';
 
 @Component({
   selector: 'app-timer-page',
@@ -23,6 +22,7 @@ import { FormsModule } from '@angular/forms';
 export class TimerPageComponent {
   userService = inject(EmpleadosService);
   timeService = inject(TimeService);
+  projectService = inject(ProyectosService);
   activatedRoute = inject(ActivatedRoute);
 
   tokenData: CustomPayload | null = null;
@@ -42,8 +42,21 @@ export class TimerPageComponent {
   department: string = '';
   message: string = '';
 
-  type: any = null;
+  activeRadioBtn: any = null;
   selectDepartment: string = '';
+
+  Toast = Swal.mixin({
+    toast: true,
+    position: 'center',
+    showConfirmButton: false,
+    showCloseButton: true,
+    timer: 3000,
+    timerProgressBar: true,
+    didOpen: (toast) => {
+      toast.onmouseenter = Swal.stopTimer;
+      toast.onmouseleave = Swal.resumeTimer;
+    },
+  });
 
   async ngOnInit() {
     await this.getProjects();
@@ -52,7 +65,7 @@ export class TimerPageComponent {
     this.tokenData = this.userService.getTokenData();
 
     // Loads the page with the "Todos" radio button selected by default
-    this.type = "all";
+    this.activeRadioBtn = 'all';
   }
 
   async getProjects() {
@@ -65,7 +78,7 @@ export class TimerPageComponent {
 
   // Listeners
   onChangeAll() {
-    this.selectDepartment = "";
+    this.selectDepartment = '';
     this.getProjects();
     this.resetActiveProjectList();
 
@@ -74,7 +87,7 @@ export class TimerPageComponent {
     }
   }
   onChangeActive() {
-    this.selectDepartment = "";
+    this.selectDepartment = '';
     this.getProjects();
 
     this.filterByActive();
@@ -84,7 +97,7 @@ export class TimerPageComponent {
   }
 
   onChangeClosed() {
-    this.selectDepartment = "";
+    this.selectDepartment = '';
     this.getProjects();
 
     this.filterByInactive();
@@ -94,7 +107,7 @@ export class TimerPageComponent {
   }
 
   onSelectChange(departmentOpt: EventTarget | null) {
-    this.type = null;
+    this.activeRadioBtn = null;
     if (departmentOpt === null) {
       return;
     }
@@ -116,7 +129,11 @@ export class TimerPageComponent {
     this.currentProject = proj;
   }
 
-  onEndShift(event: number) {
+  async onEndShift(event: number) {
+    if (this.tokenData === null) {
+      return;
+    }
+
     if (this.currentProject === null) {
       Swal.fire({
         title: 'Selecciona un proyecto',
@@ -127,24 +144,22 @@ export class TimerPageComponent {
       return;
     }
 
-    if (this.tokenData !== null) {
-      this.workHours = event;
+    this.workHours = event;
 
-      this.timeService.createTime({
-        work_hours_ms: this.workHours,
-        id_user: this.tokenData.userId,
-        date: DateTime.now().toFormat('yyyy-MM-dd'),
-      });
+    this.timeService.createTime({
+      work_hours_ms: this.workHours,
+      id_user: this.tokenData.userId,
+      date: DateTime.now().toFormat('yyyy-MM-dd'),
+    });
 
-      this.timeService.createProjectTime({
-        id_user: this.tokenData.userId,
-        id_project: this.currentProject.id,
-        hours_by_project: this.workHours,
-        date: DateTime.now().toFormat('yyyy-MM-dd'),
-      });
+    this.timeService.createProjectTime({
+      id_user: this.tokenData.userId,
+      id_project: this.currentProject.id,
+      hours_by_project: this.workHours,
+      date: DateTime.now().toFormat('yyyy-MM-dd'),
+    });
 
-      this.currentProject = null;
-    }
+    this.currentProject = null;
   }
 
   // Filters
@@ -160,7 +175,5 @@ export class TimerPageComponent {
       return proj.department === department;
     });
   }
-
-  // TODO: Make filters by DB queries
-  // TODO: Extra - Add queries to the BACK with different order By's to create an "order by" button
 }
+// TODO: Apply DB query filters
