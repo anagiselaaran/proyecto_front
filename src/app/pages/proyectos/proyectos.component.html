@@ -4,25 +4,37 @@
         <form [formGroup]="formulario" (ngSubmit)="onSubmit()" >
           <div class="form-group">
             <label for="nombre">Nombre del Proyecto</label>
-            <input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Elige un nombre"/>
+            <input id="nombre" formControlName="name" type="text" class="form-control" placeholder="Elige un nombre"/>
+            @if(checkError('name','required')){
+            <p class="error">El campo nombre es requerido</p>
+            }
           </div>
           <div class="form-group">
             <label for="fecha_limite">Fecha Límite</label>
-            <input id="fecha_limite" formControlName="fecha_limite" type="date" class="form-control" />
+            <input id="fecha_limite" formControlName="limit_date" type="date" class="form-control" />
+            @if(checkError('limit_date','required')){
+            <p class="error">El campo fecha limite es requerido</p>
+            }
           </div>
           <div class="form-group">
             <label for="departamento">Departamento</label>
-            <select id="departamento" formControlName="departamento" class="form-control" >
+            <select id="departamento" formControlName="department" class="form-control" >
                 <option value="" disabled selected>Selecciona un departamento</option>
-                <option value="administracion">Administración</option>
-                <option value="desarrollo">Desarrollo</option>
+                <option value="administration">Administración</option>
+                <option value="development">Desarrollo</option>
                 <option value="marketing">Marketing</option>
-                <option value="recursoshumanos">Recursos Humanos</option>
+                <option value="human-resources">Recursos Humanos</option>
             </select>
+            @if(checkError('department','required')){
+            <p class="error">El campo departamento es requerido</p>
+            }
           </div>
           <div class="form-group form-check">
-            <input id="activo" formControlName="activo" type="checkbox" class="form-check-input" />
+            <input id="activo" formControlName="is_active" type="checkbox" class="form-check-input" />
             <label for="activo" class="form-check-label">Activo</label>
+            @if(checkError('is_active','required')){
+            <p class="error">Elegir activo o inactivo!</p>
+            }
           </div>
           <button type="submit" class="btn btn-primary btn-block">Crear Proyecto</button>
         </form>
