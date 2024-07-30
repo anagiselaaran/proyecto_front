@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
+
 })
 export class LoginComponent {
 

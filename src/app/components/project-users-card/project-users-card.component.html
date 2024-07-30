@@ -1,36 +1,13 @@
-<div class="container-xl py-4">
-    <div class="row g-0">
+<div class="container mt-5">
+    <div class="row justify-content-center">
         <div class="col-md-12">
-            <div class="card border rounded bg-light">
-                <div class="card-body">
-                    <div class="empleado-detalle">
-                        <div class="detail-item mb-2">
-                            <strong>#</strong> {{empleado.id}}
-                        </div>
-                        <div class="detail-item mb-2">
-                            <strong>Nombre:</strong> {{empleado.name}} {{empleado.surname}}
-                        </div>
-                        <div class="detail-item mb-2">
-                            <strong>Departamento:</strong> {{empleado.department | dptoTransform}}
-                        </div>
-                        <div class="detail-item mb-2">
-                            <strong>Email:</strong> {{empleado.email}}
-                        </div>
-                        <div class="detail-item mb-2">
-                            <strong>Rol:</strong> {{empleado.role}}
-                        </div>
-                        <div class="detail-item mb-2">
-                            <strong>Estado:</strong>
-                            <span [ngClass]="{
-                                    'status': true,
-                                    'text-success': empleado.is_active,
-                                    'text-danger': !empleado.is_active,
-                                }">
-                                &bull;
-                            </span>
-                            {{empleado.is_active}}
-                        </div>
-                    </div>
+            <div class="card empleado mb-4">
+                <div class="empleado-detalle">
+                    <h2>{{empleado.name}} {{empleado.surname}}</h2>
+                    <p>{{empleado.department}}</p>
+                    <p>{{empleado.email}}</p>
+                    <p>{{empleado.role}}</p>
+                    <p>{{empleado.is_active}}</p>
                 </div>
             </div>
         </div>

@@ -1,7 +1,8 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { DateTime, Duration } from 'luxon';
 import { map, Observable, timer } from 'rxjs';
+import { UserProjects } from '../../interfaces/empleado.interface';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,8 +13,8 @@ import Swal from 'sweetalert2';
   styleUrl: './timer.component.css',
 })
 export class TimerComponent {
+  @Input() projectSelected: UserProjects | null = null;
   @Output() workHours: EventEmitter<number> = new EventEmitter();
-  // @Output() workProjects: EventEmitter<string> = new EventEmitter();
 
   Toast = Swal.mixin({
     toast: true,
@@ -45,6 +46,14 @@ export class TimerComponent {
   firstStart: boolean = true;
 
   startTimer() {
+    if (this.projectSelected === null) {
+      this.Toast.fire({
+        icon: 'error',
+        title: 'Selecciona un proyecto',
+        text: 'Por favor, selecciona un proyecto para empezar el tiempo de trabajo',
+      });
+      return;
+    }
     if (!this.firstStart) {
       return;
     }
@@ -120,13 +129,14 @@ export class TimerComponent {
     });
 
     if (response.isConfirmed) {
-      this.endShift();
-
       this.Toast.fire({
         icon: 'success',
         title: 'Sesión de trabajo finalizada',
         text: 'Que tengas un buen dia!',
       });
+
+      // Emit work hours
+      this.endShift();
 
       // Register stoppedAt
       this.stoppedAt = DateTime.now();

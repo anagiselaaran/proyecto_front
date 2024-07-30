@@ -20,8 +20,8 @@ export interface Password {
 export interface UserProjects {
     id: number;
     name: string;
-    project_work_hours: number;
-    start_date: Date;
+    project_work_hours?: number;
+    date: Date;
     //TODO: Added department and is_active
     department: string;
     is_active: boolean;

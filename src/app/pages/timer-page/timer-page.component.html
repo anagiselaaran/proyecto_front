@@ -5,27 +5,26 @@
     <div class="container">
         <div class="row g-5 mb-3">
             <div class="col-12 col-md-6">
-                <app-timer class="" (workHours)="onEndShift($event)"></app-timer>
+                <app-timer (workHours)="onEndShift($event)" [projectSelected]="currentProject"></app-timer>
             </div>
             <div class="col-12 col-md-6">
-                <div class="projects p-4">
-                    <div class="container">
+                <div class="projects p-4 shadow">
+                    <div class="title container mb-4">
                         <h3 class="text-center">Selecciona tu proyecto</h3>
-                        <div class="divider"></div>
                     </div>
-                    <div class="filters mb-2 btn-group" role="group">
+                    <div class="filters mb-2 btn-group shadow" role="group">
                         <input class="btn-check" type="radio" name="radioActive" id="all"
-                            value="all" (change)="onChangeAll()" autocomplete="off" checked [(ngModel)]="type">
+                            value="all" (change)="onChangeAll()" autocomplete="off" checked [(ngModel)]="activeRadioBtn">
                         <label class="btn btn-outline-info" for="all">Todos</label>
                         <input class="btn-check" type="radio" name="radioActive" id="active"
-                            value="active" (change)="onChangeActive()" autocomplete="off" [(ngModel)]="type">
+                            value="active" (change)="onChangeActive()" autocomplete="off" [(ngModel)]="activeRadioBtn">
                         <label class="btn btn-outline-info" for="active">Activos</label>
                         <input class="btn-check" type="radio" name="radioActive" id="closed"
-                            value="closed" (change)="onChangeClosed()" autocomplete="off" [(ngModel)]="type">
+                            value="closed" (change)="onChangeClosed()" autocomplete="off" [(ngModel)]="activeRadioBtn">
                         <label class="btn btn-outline-info" for="closed">Cerrados</label>
                     </div>
                     <div class="select-dpt mb-4">
-                        <select class="form-select-sm w-100"
+                        <select class="form-select-sm w-100 p-2 shadow"
                             (change)="onSelectChange($event.target)" [(ngModel)]="selectDepartment">
                             <option selected value="">Departamentos</option>
                             @for (dpt of dptList; track $index) {
@@ -41,7 +40,7 @@
                             <input type="radio" class="btn-check" name="project"
                                 [id]='"projectInput" + proj.id' autocomplete="off"
                                 [disabled]="!proj.is_active" (change)="onProjectSelect(proj)">
-                            <label class="label-btn btn btn-outline-dark shadow"
+                            <label class="label-btn btn btn-outline-dark"
                                 [class]="proj.department" [for]='"projectInput" + proj.id'>
                                 <span>{{proj.name}}</span>
                                 <p class="m-0 dpt">{{proj.department | dptoTransform}}</p>
