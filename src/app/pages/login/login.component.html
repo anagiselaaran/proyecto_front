@@ -1,5 +1,4 @@
 <section class="vh-100" style="background: conic-gradient(from 0deg, #ff7e5f, var(--light-salmon), var(--salmon));">
-
     <div class="container py-5 h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
             <div class="col col-xl-10">
@@ -17,12 +16,8 @@
                                             alt="Logo" class="me-0"
                                             style="max-width: 100%; height: 50px; display: block; margin-bottom: 25px; padding: 0;" />
                                     </div>
-
-
                                     <h5 class="fw-normal mb-3 pb-3 ms-2" style="letter-spacing: 1px;">Iniciar sesión
                                     </h5>
-
-
                                     <div input-init class="form-outline mb-4">
                                         <input type="text" class="form-control form-control-lg" formControlName="email"
                                             placeholder="Ingresa tu email" />
@@ -31,16 +26,14 @@
                                         <p class="text-danger mt-1">Ingresa un correo electrónico válido</p>
                                         }
                                     </div>
-
                                     <div input-init class="form-outline mb-4">
                                         <input type="password" id="form2Example27" class="form-control form-control-lg"
                                             formControlName="password" placeholder="Ingresa tu contraseña" />
                                         <label class="form-label">Password</label>
-                                        @if (checkError('password', 'pattern')) {
+                                        @if (checkError('password', 'required')) {
                                         <p class="text-danger mt-1">La contraseña es incorrecta</p>
                                         }
                                     </div>
-
                                     <div class="form-check d-flex justify-content-between mb-4">
                                         <div>
                                             <input class="form-check-input" type="checkbox" id="rememberMe" />
@@ -50,12 +43,10 @@
                                         </div>
                                         <a href="#" class="text-muted">¿Has olvidado la contraseña?</a>
                                     </div>
-
                                     <div class="pt-1 mb-4">
                                         <button class="btn btn-dark btn-lg btn-block" type="submit">Iniciar
                                             sesión</button>
                                     </div>
-
                                     @if (!formularioLogin.valid) {
                                     <p class="text-danger mt-3">Revisa los errores del formulario y vuelve a intentarlo
                                     </p>

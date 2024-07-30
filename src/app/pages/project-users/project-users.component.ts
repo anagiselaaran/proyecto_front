@@ -5,11 +5,13 @@ import { Empleado } from '../../interfaces/empleado.interface';
 import { ActivatedRoute } from '@angular/router';
 import { Proyecto } from '../../interfaces/proyecto.interface';
 import { ProyectosService } from '../../services/proyectos.service';
+import { NgClass } from '@angular/common';
+import { DptoTransformPipe } from '../../pipes/dpto-transform.pipe';
 
 @Component({
   selector: 'project-users',
   standalone: true,
-  imports: [ProjectUsersCardComponent],
+  imports: [ProjectUsersCardComponent, NgClass, DptoTransformPipe],
   templateUrl: './project-users.component.html',
   styleUrl: './project-users.component.css'
 })

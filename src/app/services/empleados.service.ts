@@ -13,6 +13,9 @@ type ApiResponse = { success: string; token?: string };
   providedIn: 'root',
 })
 export class EmpleadosService {
+  getProjectsByUserId(): import("../interfaces/empleado.interface").UserProjects[] | PromiseLike<import("../interfaces/empleado.interface").UserProjects[]> {
+    throw new Error('Method not implemented.');
+  }
   private baseUrl: string = `${environment.apiUrl}/api/users`;
 
   private httpClient = inject(HttpClient);
@@ -69,3 +72,5 @@ export class EmpleadosService {
     return jwtDecode<CustomPayload>(token);
   }
 }
+export { CustomPayload };
+
