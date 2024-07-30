@@ -56,7 +56,6 @@ export class EmpleadosService {
   }
 
   updatePassword(userId: number, body: Password): Promise<any> {
-    console.log(body)
     return firstValueFrom(
       this.httpClient.put<any>(this.baseUrl + '/profile/edit/' + userId, body)
       );
