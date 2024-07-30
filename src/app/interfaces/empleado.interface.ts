@@ -16,15 +16,6 @@ export interface Password {
     newPassword: string;
     newRepPassword: string;
 }
-<<<<<<< HEAD
-export interface UserProjects {
-    id: number;
-    name: string;
-    is_active: boolean;
-    limit_date: string;
-    hours_by_project: number;
-    date: Date;
-=======
 
 export interface UserProjects {
     id: number;
@@ -35,5 +26,4 @@ export interface UserProjects {
     hours_by_project?: number;
     department: string;
     is_active: boolean;
->>>>>>> feature-userProjects
 }
