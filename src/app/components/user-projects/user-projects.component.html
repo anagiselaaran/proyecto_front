@@ -6,7 +6,7 @@
     <ul class="container mb-5">
         @if (arrProyectos) {
         @for (proyecto of arrProyectos; track $index) {
-        <li class="card col-12 col-md-6 mb-3 container ">
+        <li class="card col-12 col-md-8 mb-3 container ">
             <div class="card-body">
                 <h5 class="card-title">Proyecto: {{ proyecto.name }}</h5>
                 <hr>
@@ -15,10 +15,10 @@
                 <p class="card-text">Fecha Creación: {{ proyecto.date | date:'dd-MM-yyyy' }}</p>
                 <p class="card-text">Horas dedicadas: {{ proyecto.hours_by_project }} horas</p>
               @if (proyecto.is_active) {
-                <p class="card-text text-success">Estado: Activo</p>
+                <p class="estado card-text text-success text-">Estado: Activo</p>
             }
             @else {
-                <p class="card-text text-bg-danger">Estado: Inactivo</p>
+                <p class="estado card-text text-bg-danger">Estado: Inactivo</p>
             }
            
             </div>

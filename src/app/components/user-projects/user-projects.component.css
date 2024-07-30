@@ -1,12 +1,14 @@
 .card{
-    background-color: #6590C2;
+    background-color: #75a3d8;
             box-shadow: 4px 8px 10px black;
 }
 .box{
-    background-color: #b7bdc4;
+    background-color: #c2ccd8;
             box-shadow: 2px 6px 40px black;
 }
 h2{
     text-shadow: 2px 2px 20px black;
-    
+}
+.estado{
+    font-weight: 600;
 }
