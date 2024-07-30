@@ -6,7 +6,7 @@
   </div>
   <nav>
     <ul>
-      <li class="divbar">
+      <li class="divbar" routerLinkActive="activo">
         <a [routerLink]="['/admin','timer']">Cronómetro
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-stopwatch" viewBox="0 0 16 16">
             <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5z"/>
@@ -15,7 +15,7 @@
         </a>
       </li>
      
-      <li class="divbar">
+      <li class="divbar" routerLinkActive="activo" [routerLinkActiveOptions]="{exact:true}">
         <a [routerLink]="['/admin','profile']">Empleado
           <svg xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 448 512" width="20" height="20" fill="currentColor" class="bi bi-escape">
@@ -24,7 +24,7 @@
           </svg>
         </a>
       </li>
-      <li class="divbar">
+      <li class="divbar" routerLinkActive="activo">
         <a [routerLink]="['/admin','control_hours',userId]">Horas
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="20" height="20" fill="currentColor" class="bi bi-escape">
             <path
@@ -33,7 +33,7 @@
         </a>
       </li>
       @if (userRole === 'admin') {
-        <li class="divbar">
+        <li class="divbar" routerLinkActive="activo">
           <a [routerLink]="['/admin','register']">Registra Usuario
             <svg xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512" width="20" height="20" fill="currentColor" class="bi bi-escape">
@@ -42,7 +42,7 @@
             </svg>
           </a>
         </li>
-      <li class="divbar">
+      <li class="divbar" routerLinkActive="activo">
         <a [routerLink]="['/admin','proyectos']">Crear Proyecto
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clipboard2-data"
             viewBox="0 0 16 16">
@@ -55,8 +55,8 @@
           </svg>
         </a>
       </li>
-      <li class="divbar">
-        <a [routerLink]="['/admin','panel']">Panel Usuarios & Proyectos
+      <li class="divbar" routerLinkActive="activo">
+        <a [routerLink]="['/admin','panel']">Usuarios & Proyectos
           <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-escape"
             viewBox="0 0 512 512">
             <path d="M0 96C0 60.7 28.7 32 64 32l384 0c35.3 0 64 28.7 64 64l0 320c0 35.3-28.7 64-64 64L64 480c-35.3 0-64-28.7-64-64L0 96zm64 64l0 256 160 0 0-256L64 160zm384 0l-160 0 0 256 160 0 0-256z" />

@@ -14,7 +14,7 @@ interface CustomPayload extends JwtPayload{
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive],
+  imports: [RouterLink,RouterLinkActive],
   templateUrl: './nav-bar.component.html',
   styleUrl: './nav-bar.component.css'
 })
