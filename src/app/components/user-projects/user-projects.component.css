@@ -1,14 +1,19 @@
 .card{
     background-color: #75a3d8;
-            box-shadow: 4px 8px 10px black;
+    box-shadow: 4px 8px 10px black;
 }
-.box{
-    background-color: #c2ccd8;
-            box-shadow: 2px 6px 40px black;
-}
+
 h2{
     text-shadow: 2px 2px 20px black;
 }
 .estado{
     font-weight: 600;
+}
+.card{
+    padding: 10px;
+        background-color: var(--color-background);
+        border: 5px solid var(--color-secondary);
+        & h3 {
+            border-bottom: 1px solid #333;
+        }
 }

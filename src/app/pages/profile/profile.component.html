@@ -1,14 +1,15 @@
-<main class="container">
-  <div class="row">
-    <div class="col-7 mx-auto">
+<main class=" container">
+  <div class="row justify-content-center ">
+    <div class="col-12 ">
 
         
           <div>
             <h1>Perfil de usuario</h1>
+            <hr>
           </div>
         
           @if (empleado) {
-          <div class="card col-12 col-md-8">
+          <div class="card col-12 col-md-12">
             <h3 class="text-center title">{{ empleado.name | titlecase}} {{ empleado.surname | titlecase}}</h3>
             <h4>ID: {{empleado.id}}</h4>
             <h4>Email: {{empleado.email}}</h4>
@@ -24,16 +25,18 @@
           </div>
           }
       
-        <div class="container mt-5">
+        <div class=" mt-5">
           <user-projects></user-projects>
         </div>
-        <div class="container  d-flex justify-content-center">
-            <div>
-              <h2>Modificar contraseña</h2>
-            </div>
-            
-            @if (empleado) {
-            <div class="card">
+        
+        <div class="container justify-content-center mt-5">
+          @if (empleado) {
+            <div class="card contraseña">
+              <div>
+                <h2>Modificar contraseña</h2>
+                <hr>
+              </div>
+              
               <h3 class="text-center">{{ empleado.name | titlecase}} {{ empleado.surname | titlecase}}</h3>
             
               <form [formGroup]="newForm" class="form-control" (ngSubmit)="onSubmit()">

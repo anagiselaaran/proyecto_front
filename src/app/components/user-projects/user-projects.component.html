@@ -1,13 +1,13 @@
 
 
-<div class="box container p-1 rounded col-md-8 ">
-    <h2 class="container justify-content-center p-3 d-flex">Mis proyectos</h2>
+<div class="box container rounded p-1 col-12 col-md-12 ">
+    <h2 class="container justify-content-center p-2 d-flex">Mis proyectos</h2>
     <hr class="mb-5">
-    <ul class="container mb-5">
+    <ul class="p-0 mb-5">
         @if (arrProyectos) {
         @for (proyecto of arrProyectos; track $index) {
-        <li class="card col-12 col-md-8 mb-3 container ">
-            <div class="card-body">
+        <li class="card  mb-3">
+            <div class="card-body justify-content-center">
                 <h5 class="card-title">Proyecto: {{ proyecto.name }}</h5>
                 <hr>
                 <p class="card-text"> ID: {{ proyecto.id }}</p>

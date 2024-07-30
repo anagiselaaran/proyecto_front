@@ -2,7 +2,9 @@ h1, h2{
     margin:20px 0;
     text-align: center;
     font-weight: 600;
+    text-shadow: 2px 2px 20px black;
 }
+
 .active {
     color: green;
 }
@@ -23,7 +25,12 @@ h1, h2{
     }
 }
 form{
-    background-color: var(--color-text);
+    border: none;
+    box-shadow: 4px 8px 10px black;
+    padding: 10px;
+        background-color: var(--color-background);
+        border: 5px solid var(--color-secondary);
+    
 }
 .form-control{
     margin-top: 10px;
@@ -33,16 +40,21 @@ button{
 }
 .card {
     background-color:#c2ccd8 ;
-  box-shadow: 2px 6px 40px black; 
+  box-shadow: 2px 6px 20px black; 
 }
 
 .box {
     background-color: #75a3d8;
      box-shadow: 4px 8px 10px black;
 }
+.contraseña{
+    box-shadow: 2px 6px 40px black;
+}
+
 @media(max-width:768px){
     h3,h4,h5{
         font-size: 16px;
         text-transform: uppercase;
+        
     }
 }
