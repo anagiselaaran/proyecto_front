@@ -1,0 +1,142 @@
+.label-btn {
+  color: var(--color-secondary);
+  background-color: #00000025;
+  box-shadow: 0 0 0px 1px var(--color-secondary);
+  margin-bottom: 5px;
+}
+
+.development {
+  border-width: 0 15px;
+  border-left-color: var(--color-primary);
+  border-right-color: var(--color-primary);
+
+  &:hover {
+    border-width: 0 15px;
+    border-left-color: var(--color-primary-strong);
+    border-right-color: var(--color-primary-strong);
+  }
+}
+.human-resources {
+  border-width: 0 15px;
+  border-left-color: var(--color-background);
+  border-right-color: var(--color-background);
+
+  &:hover {
+    border-width: 0 15px;
+    border-left-color: var(--color-background-strong);
+    border-right-color: var(--color-background-strong);
+  }
+}
+.marketing {
+  border-width: 0 15px;
+  border-left-color: var(--color-accent-strong);
+  border-right-color: var(--color-accent-strong);
+
+  &:hover {
+    border-width: 0 15px;
+    border-left-color: var(--color-accent);
+    border-right-color: var(--color-accent);
+  }
+}
+.administration {
+  border-width: 0 15px;
+  border-left-color: var(--color-text);
+  border-right-color: var(--color-text);
+
+  &:hover {
+    border-width: 0 15px;
+    border-left-color: var(--color-text-strong);
+    border-right-color: var(--color-text-strong);
+  }
+}
+
+select.form-select-sm {
+  border: none;
+  background-color: #00000025;
+  color: var(--color-secondary);
+}
+
+.project-list .btn-check + label:hover {
+  /* width: 103%; */
+  transform: scaleX(1.025);
+  transition: 0.3s ease-in-out;
+}
+
+.project-list .btn-check:checked {
+  & + label {
+    transform: scaleX(1.025);
+    /* border-width: 15px; */
+    box-shadow: 0 0 0px 2px var(--color-secondary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #343434;
+    background-color: #00000025;
+  }
+  & + .development {
+    border-left-color: var(--color-primary-strong);
+    border-right-color: var(--color-primary-strong);
+  }
+  & + .human-resources {
+    border-left-color: var(--color-background-strong);
+    border-right-color: var(--color-background-strong);
+  }
+  & + .marketing {
+    border-left-color: var(--color-accent);
+    border-right-color: var(--color-accent);
+  }
+  & + .administration {
+    border-left-color: var(--color-text-strong);
+    border-right-color: var(--color-text-strong);
+  }
+  & + label p {
+    font-size: 0.8rem;
+    font-weight: 500;
+  }
+}
+
+.project-list input.btn-check:disabled + label {
+  opacity: 0.4;
+}
+
+div.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & h3 {
+    margin: 0;
+    color: var(--color-secondary);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}
+
+div.projects {
+  /* border: var(--color-secondary) 3px solid; */
+  border-radius: 15px;
+  background-color: #0000002c;
+
+  /* overflow-y: scroll; */
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & .btn-outline-info {
+    border-color: var(--color-primary-strong);
+    color: var(--color-primary-strong);
+  }
+
+  & input.btn-check:checked + .btn-outline-info {
+    background-color: var(--color-primary);
+    color: black;
+  }
+}
+
+.msg {
+  color: var(--color-secondary);
+  font-weight: 600;
+  font-size: 1.2rem;
+}

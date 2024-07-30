@@ -1,0 +1,77 @@
+
+<main class="container mx-auto ">
+    <div class="datos-top col-8 mx-auto row col-md-7 ">
+        @if (usuario) {
+        <div class="datos-user col-6">
+            <h3>Hola {{usuario.name | uppercase}}
+                @if (usuario.is_active) {
+                <i class="fa-solid fa-user active"></i>
+                }@else {
+                <i class="fa-solid fa-user inactive"></i>
+                }
+            </h3>
+            <div class="user">
+                <p>{{usuario.name | titlecase}} {{usuario.surname | titlecase}}</p>
+                <p>Departamento: {{usuario.department | dptoTransform }}</p>
+                <p>Role: {{usuario.role | titlecase}}</p>
+                <p>ID: {{usuario.id}}</p>
+        
+            </div>
+        </div>
+        
+        <figure class="col-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                <path
+                    d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512l388.6 0c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304l-91.4 0z" />
+            </svg>
+        </figure>
+        }
+
+    </div>
+        
+    <div class="search col-7 mx-auto">
+            <div class="mb-2">
+                <label class="form-label">Inicio</label>
+                <input type="date" class="form-control" (change)="dateStart($event)">
+            </div>
+            <div class="mb-2">
+                <label class="form-label">Final</label>
+                <input type="date" class="form-control" (change)="dateEnd($event)">
+            </div>
+            <input type="submit" value="Buscar" (click)="getPeriod($event)">
+    </div>
+    <div class="hours col-7 mx-auto ">
+            <h3>Mis horas</h3>
+        
+            <div class="table_hours">
+                <table class="table overflow-y-scroll">
+                    <thead>
+                        <tr>
+                            <th scope="col">Dia</th>
+                            <th scope="col"></th>
+                            <th scope="col">Horas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of resultado; track item.id) {
+                        <tr>
+                            <td>{{item.date | date:'dd-MM-YYYY'}}</td>
+                            <td></td>
+                            <td>{{item.work_hours_ms}}</td>
+                            <td></td>
+                        </tr>
+                        }@empty {
+                        <tr>
+                            <td>No hay horas en ese período</td>
+                        </tr>
+                        }
+        
+                    </tbody>
+                </table>
+        
+            </div>
+        
+    </div>
+   
+
+</main>

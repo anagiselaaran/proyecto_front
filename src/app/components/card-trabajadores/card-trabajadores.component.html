@@ -1,12 +1,12 @@
 
 @if (trabajador) {
     <div class="card mb-2" >
-        <h3>{{trabajador.name}} {{trabajador.surname}}</h3>
-        <p>Departamento: {{trabajador.department}}</p>
+        <h3>{{trabajador.name | titlecase }} {{trabajador.surname | titlecase}} - ID: {{trabajador.id}}</h3>
+        <p>Departamento: {{trabajador.department | dptoTransform}}</p>
         <p>Email: {{trabajador.email}}</p>
-        <p>Role: {{trabajador.role}}</p>
+        <p>Role: {{trabajador.role | titlecase}}</p>
         <p>Horas por Contrato: {{trabajador.contracted_hours}}</p>
-        <p>Fecha creacion Perfil: {{trabajador.created_at}}</p>
+        <p>Fecha creacion Perfil: {{trabajador.created_at | date:'dd-MM-yyyy'}}</p>
         @if (trabajador.is_active) {
             <p>Empleado <span class="active">activo</span></p>
         }@else {

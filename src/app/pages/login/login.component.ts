@@ -1,8 +1,10 @@
 import { Component, inject } from '@angular/core';
 import { EmpleadosService } from '../../services/empleados.service';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+
+
 
 @Component({
   selector: 'login',
@@ -10,18 +12,21 @@ import Swal from 'sweetalert2';
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
+
 })
 export class LoginComponent {
+
   empleadosService = inject(EmpleadosService);
   router = inject(Router)
+  
 
+  userId: string = ""
 
   formularioLogin: FormGroup = new FormGroup({
     email: new FormControl(null, [
       Validators.pattern(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/)
     ]),
     password: new FormControl(null, []),
-    //borre el validador que no va!
 
   });
 
@@ -36,6 +41,7 @@ export class LoginComponent {
         });
 
         localStorage.setItem('token', response.token!);
+
         this.router.navigateByUrl('/usuarios/registro');
 
         this.formularioLogin.reset();
@@ -50,9 +56,14 @@ export class LoginComponent {
     } else {
       Object.values(this.formularioLogin.controls).forEach(control => {
         control.markAsTouched();
+
       });
     }
+
+    this.router.navigate(['/admin','profile']);
   }
+
+
 
   checkError(controlName: string, errorName: string) {
     return this.formularioLogin.get(controlName)?.hasError(errorName) && this.formularioLogin.get(controlName)?.touched;

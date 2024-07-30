@@ -12,13 +12,10 @@
 .flex-item {
     display: flex;
     flex-direction: column;
-
 }
 
 .form-control {
     width: 90%;
-    /*border: none;
-    border-bottom: 0.5px outset #343a40*/
     border: 1px solid #ccc;
     border-radius: 3px;
     padding: 0.80rem 1rem 0.60rem 1rem;
@@ -39,10 +36,7 @@
 }
 
 .card-header-custom {
-    background: linear-gradient(135deg,
-            #FFB865,
-            #f37c55,
-            #f06752);
+    background: linear-gradient(135deg, #FFB865, #f37c55, #f06752);
     color: white;
     padding: 1rem 1.5rem;
     position: absolute;
@@ -78,10 +72,8 @@
     width: fit-content;
 }
 
-
 h2 {
     margin: 0;
-
 }
 
 h4 {
@@ -112,4 +104,36 @@ h4 {
 
 .btn:active {
     transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+    .form-group {
+        flex: 1 1 100%;
+    }
+
+    .card {
+        width: 100%;
+        margin-top: 8rem;
+    }
+
+    .card-header-custom {
+        left: 50%;
+        width: calc(90% - 2rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .form-control {
+        width: 100%;
+    }
+
+    .card {
+        width: 100%;
+        margin-top: 6rem;
+    }
+
+    .card-header-custom {
+        left: 50%;
+        width: calc(95% - 2rem);
+    }
 }

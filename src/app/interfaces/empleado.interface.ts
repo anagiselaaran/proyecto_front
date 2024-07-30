@@ -9,7 +9,6 @@ export interface Empleado {
     contracted_hours: number;
     is_active: boolean;
     created_at?: Date;
-    updated_at?: Date;
 }
 
 export interface Password {
@@ -17,6 +16,7 @@ export interface Password {
     newPassword: string;
     newRepPassword: string;
 }
+<<<<<<< HEAD
 export interface UserProjects {
     id: number;
     name: string;
@@ -24,4 +24,16 @@ export interface UserProjects {
     limit_date: string;
     hours_by_project: number;
     date: Date;
+=======
+
+export interface UserProjects {
+    id: number;
+    name: string;
+    project_work_hours?: number;
+    date: Date;
+    limit_date?: string;
+    hours_by_project?: number;
+    department: string;
+    is_active: boolean;
+>>>>>>> feature-userProjects
 }

@@ -6,7 +6,8 @@
 }
 .card{
     padding: 10px;
-    background-color: #eee;
+    background-color: var(--color-background);
+    border: 5px solid var(--color-secondary);
     margin: 10px ;
 
     & h3{

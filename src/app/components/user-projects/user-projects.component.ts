@@ -20,7 +20,7 @@ interface CustomPayload extends JwtPayload {
 @Component({
   selector: 'user-projects',
   standalone: true,
-  imports: [DatePipe, ReactiveFormsModule],
+  imports: [DatePipe, ReactiveFormsModule, UserProjectsComponent],
   templateUrl: './user-projects.component.html',
   styleUrl: './user-projects.component.css'
 })

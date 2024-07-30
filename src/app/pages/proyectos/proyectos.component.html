@@ -1,9 +1,7 @@
-<div class="d-flex justify-content-center align-items-center vh-100 bg-lightblue ">
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6 col-lg-4">
+<div class="d-flex justify-content-center align-items-center vh-100 bg row">
+  <div class="col-5 ">
         <h1 class="text-center">Crear Proyecto</h1>
-        <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="mt-4">
+        <form [formGroup]="formulario" (ngSubmit)="onSubmit()" >
           <div class="form-group">
             <label for="nombre">Nombre del Proyecto</label>
             <input id="nombre" formControlName="nombre" type="text" class="form-control" placeholder="Elige un nombre"/>
@@ -28,7 +26,5 @@
           </div>
           <button type="submit" class="btn btn-primary btn-block">Crear Proyecto</button>
         </form>
-      </div>
-    </div>
   </div>
 </div>

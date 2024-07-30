@@ -1,0 +1,45 @@
+
+.datos-top{
+    border: 1px solid var(--dark-grey);
+    margin-top: 100px;
+    box-shadow: 10px 10px var(--color-background);
+    height: 50vh;
+}
+figure svg{
+    background-color: #ccc;
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 50px;
+    border-radius: 50%;
+    padding: 10px;
+}
+h3{
+    padding:5px;
+    border-bottom: 1px solid var(--dark-grey)
+}
+.search{
+    padding: 40px 0;
+
+    & input[type=submit] {
+            display: block;
+            background-color: var(--dark-grey);
+            color: white;
+            padding: 0px 40px;
+            border-radius: 10px;
+            margin: 0 auto;
+        }
+}   
+
+i.inactive{
+    color: red;
+}
+i.active {
+    color: green;
+}
+
+.hours{
+    height: 400px;
+    margin-bottom: 100px;
+    overflow-y: scroll;
+}

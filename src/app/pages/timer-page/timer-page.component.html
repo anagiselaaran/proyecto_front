@@ -1,17 +1,70 @@
 <div class="wrapper">
-    <div class="clock">
-        <app-clock></app-clock>
+    <div class="clock row">
+        <app-clock class="col col-lg-3 offset-lg-8"></app-clock>
     </div>
-    <app-timer (workHours)="onEndShift($event)"></app-timer>
-    <!-- <div class="d-flex justify-content-center mt-4 total-hours">
-        <h5>Total work hours today: <span>{{(workHours / 3600000).toFixed(0)}}</span></h5>
-    </div> -->
-    <div class="projects">
-        <select class="form-select" size="5">
-            <option selected>Selecciona tu proyecto</option>
-            <!-- @for (proj of projectList; track proj.id) {
-            <option value="{{proj.id}}">{{proj.name}}</option>
-            } -->
-        </select>
+    <div class="container">
+        <div class="row g-5 mb-3">
+            <div class="col-12 col-md-6">
+                <app-timer (workHours)="onEndShift($event)" [projectSelected]="currentProject"></app-timer>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="projects p-4 shadow">
+                    <div class="title container mb-4">
+                        <h3 class="text-center">Selecciona tu proyecto</h3>
+                    </div>
+                    <div class="filters mb-2 btn-group shadow" role="group">
+                        <input class="btn-check" type="radio" name="radioActive" id="all"
+                            value="all" (change)="onChangeAll()" autocomplete="off" checked [(ngModel)]="activeRadioBtn">
+                        <label class="btn btn-outline-info" for="all">Todos</label>
+                        <input class="btn-check" type="radio" name="radioActive" id="active"
+                            value="active" (change)="onChangeActive()" autocomplete="off" [(ngModel)]="activeRadioBtn">
+                        <label class="btn btn-outline-info" for="active">Activos</label>
+                        <input class="btn-check" type="radio" name="radioActive" id="closed"
+                            value="closed" (change)="onChangeClosed()" autocomplete="off" [(ngModel)]="activeRadioBtn">
+                        <label class="btn btn-outline-info" for="closed">Cerrados</label>
+                    </div>
+                    <div class="select-dpt mb-4">
+                        <select class="form-select-sm w-100 p-2 shadow"
+                            (change)="onSelectChange($event.target)" [(ngModel)]="selectDepartment">
+                            <option selected value="">Departamentos</option>
+                            @for (dpt of dptList; track $index) {
+                            <option value="{{dpt}}">{{dpt | dptoTransform}}</option>
+                            }
+                        </select>
+                    </div>
+
+
+                    <div class="project-list container d-flex flex-column">
+
+                        @for (proj of activeProjectList; track proj.id) {
+                            <input type="radio" class="btn-check" name="project"
+                                [id]='"projectInput" + proj.id' autocomplete="off"
+                                [disabled]="!proj.is_active" (change)="onProjectSelect(proj)">
+                            <label class="label-btn btn btn-outline-dark"
+                                [class]="proj.department" [for]='"projectInput" + proj.id'>
+                                <span>{{proj.name}}</span>
+                                <p class="m-0 dpt">{{proj.department | dptoTransform}}</p>
+                            </label>
+                        } @empty {
+                            <p class=" msg text-center">{{message}} <span>{{department |
+                                    dptoTransform}}</span></p>
+                        }
+                        @if (department !== '' && activeProjectList.length === 0 && message.length
+                        === 0) {
+                            @for (proj of projectList; track proj.id) {
+                                <input type="radio" class="btn-check" name="project"
+                                    [id]='"projectInput" + proj.id' autocomplete="off"
+                                    [disabled]="!proj.is_active" (change)="onProjectSelect(proj)">
+                                <label class="label-btn btn btn-outline-dark shadow"
+                                    [class]="proj.department" [for]='"projectInput" + proj.id'>
+                                    <span>{{proj.name}}</span>
+                                    <p class="m-0 dpt">{{proj.department | dptoTransform}}</p>
+                                </label>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

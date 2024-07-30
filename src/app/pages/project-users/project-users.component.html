@@ -1,0 +1,63 @@
+<div class="main-container">
+    <div class="container-xl">
+        <div class="table-responsive">
+            <div class="table-wrapper">
+                <div class="table-title">
+                    <h2>Empleados asignados a este proyecto</h2>
+                </div>
+                <table class="table align-middle mb-0">
+                    <thead class="bg-light">
+                        <tr>
+                            <th>Avatar</th>
+                            <th>#</th>
+                            <th>Nombre</th>
+                            <th>Departamento</th>
+                            <th>Email</th>
+                            <th>Rol</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (empl of arrEmpleados; track empl.id) {
+                        <tr class="bg-light employee-row hover-bg-info">
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <img src="https://img.freepik.com/free-psd/3d-icon-social-media-app_23-2150049569.jpg?w=1060&t=st=1722295158~exp=1722295758~hmac=8769756655830e7084926b4c26bb0fe6647c9312d3574f46f8334b1c515cbab6"
+                                        alt="Avatar" class="avatar-img" />
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">{{empl.name}} {{empl.surname}}</p>
+                                        <p class="text-muted mb-0">{{empl.email}}</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>{{empl.id}}</td>
+                            <td>{{empl.name}} {{empl.surname}}</td>
+                            <td>{{empl.department}}</td>
+                            <td>{{empl.email}}</td>
+                            <td>{{empl.role}}</td>
+                            <td>
+                                <span [ngClass]="{
+                                            'badge': true,
+                                            'badge-success': empl.is_active,
+                                            'badge-danger': !empl.is_active,
+                                            'rounded-pill': true,
+                                            'd-inline': true
+                                        }">
+                                    {{empl.is_active ? 'Activo' : 'Inactivo'}}
+                                </span>
+                            </td>
+                        </tr>
+                        }
+                        @empty {
+                        <tr>
+                            <td colspan="7">
+                                <h2>No hay empleados asignados a este proyecto</h2>
+                            </td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

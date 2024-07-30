@@ -2,22 +2,30 @@
 @import url("https://fonts.cdnfonts.com/css/waiting-summer");
 
 :root {
-  --light-salmon: #feb47b;
-  --dark-grey: #343a40ff;
-  --salmon: #ff7e5f;
-  --dark-skyblue: #62929eff;
-  --aquamarine: #49beaaff;
-
   --color-primary: #FF8B65;
   --color-secondary: #343A40;
   --color-accent: #F6E27F;
+  --color-accent-secondary: #62929e;
   --color-background: #A8B7AB;
   --color-text: #9BBEC7;
+
+  --color-primary-80: #FF8B6580;
+  --color-secondary-80: #343A4080;
+  --color-accent-80: #F6E27F80;
+  --color-accent-secondary-80: #62929e80;
+  --color-background-80: #A8B7AB80;
+  --color-text-80: #9BBEC780;
+
+  --color-primary-strong: #d53d17;
+  --color-accent-strong: #c8b247;
+  --color-background-strong: #abc8b1;
+  --color-text-strong: #6eb7c8;
 }
 
 body,
 html {
   margin: 0;
+  margin-bottom: 50px;
   padding: 0;
   font-family: 'Roboto', sans-serif;
   font-size: 16px;
