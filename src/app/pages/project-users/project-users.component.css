@@ -1,8 +1,7 @@
 .table {
     border-collapse: separate;
     border-spacing: 30px;
-    width: 90%;
-    padding-left: 55px;
+    max-width: 90%;
 }
 
 
@@ -16,11 +15,12 @@
 
 /* Estilos para el título de la tabla */
 .table-title {
-    margin-left: 85px;
+
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .table tbody tr {
+    width: 100%;
     background-color: #e3f2fd;
     border: 1px solid #dddddd;
     border-radius: 8px;
@@ -58,6 +58,8 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding-top: 50px;
     margin-top: 100px;
+    width: 100%;
+
 }
 
 .avatar-img {
