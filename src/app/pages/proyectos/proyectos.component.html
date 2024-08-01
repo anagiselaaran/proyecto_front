@@ -1,42 +1,38 @@
-<div class="d-flex justify-content-center align-items-center vh-100 bg row">
-  <div class="col-5 ">
-        <h1 class="text-center">Crear Proyecto</h1>
-        <form [formGroup]="formulario" (ngSubmit)="onSubmit()" >
-          <div class="form-group">
-            <label for="nombre">Nombre del Proyecto</label>
-            <input id="nombre" formControlName="name" type="text" class="form-control" placeholder="Elige un nombre"/>
-            @if(checkError('name','required')){
-            <p class="error">El campo nombre es requerido</p>
-            }
+<section class="vh-100" style="background: conic-gradient(from 0deg, rgba(52, 58, 64, 0.) 50%);">
+  <div class="container">
+    <div class="card-header-custom">
+      <h2 class="text-left mb-0">Crear proyecto</h2>
+      <h4 class="text-left mb-8">Registre los datos del nuevo proyecto</h4>
+    </div>
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card shadow">
+          <div class="card-body p-4 p-lg-5">
+            <form [formGroup]="formulario" (ngSubmit)="onSubmit()" class="form-flex">
+              <div class="form-group flex-item">
+                <label class="form-label">Nombre</label>
+                <input type="text" class="form-control" formControlName="nombre">
+              </div>
+              <div class="form-group flex-item">
+                <label class="form-label">Fecha Límite</label>
+                <input type="date" class="form-control" formControlName="fecha_limite">
+              </div>
+              <div class="form-group flex-item">
+                <label class="form-label">Departamento</label>
+                <select class="form-select form-control" formControlName="departamento">
+                  <option value="development">Development</option>
+                  <option value="human-resources">Recursos Humanos</option>
+                  <option value="administration">Administración</option>
+                  <option value="marketing">Marketing</option>
+                </select>
+              </div>
+              <div class="d-flex justify-content-center pt-4">
+                <input type="submit" value="REGISTRAR" class="btn btn-secondary btn-block">
+              </div>
+            </form>
           </div>
-          <div class="form-group">
-            <label for="fecha_limite">Fecha Límite</label>
-            <input id="fecha_limite" formControlName="limit_date" type="date" class="form-control" />
-            @if(checkError('limit_date','required')){
-            <p class="error">El campo fecha limite es requerido</p>
-            }
-          </div>
-          <div class="form-group">
-            <label for="departamento">Departamento</label>
-            <select id="departamento" formControlName="department" class="form-control" >
-                <option value="" disabled selected>Selecciona un departamento</option>
-                <option value="administration">Administración</option>
-                <option value="development">Desarrollo</option>
-                <option value="marketing">Marketing</option>
-                <option value="human-resources">Recursos Humanos</option>
-            </select>
-            @if(checkError('department','required')){
-            <p class="error">El campo departamento es requerido</p>
-            }
-          </div>
-          <div class="form-group form-check">
-            <input id="activo" formControlName="is_active" type="checkbox" class="form-check-input" />
-            <label for="activo" class="form-check-label">Activo</label>
-            @if(checkError('is_active','required')){
-            <p class="error">Elegir activo o inactivo!</p>
-            }
-          </div>
-          <button type="submit" class="btn btn-primary btn-block">Crear Proyecto</button>
-        </form>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
+</section>
